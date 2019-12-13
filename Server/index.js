@@ -7,20 +7,32 @@ app.use(bodyPaser.urlencoded({
 }))
 var data = require('./Module/Person');
 
+function Person(id,user,pass){
 
+    this.id = id
+    this.user = user
+    this.pass = pass
+
+}
+var arrPerson = [
+    new Person("114","admin2","admin123"),
+    new Person("114","admin2","admin123"),
+
+
+];
 app.get('/ios',function (req,res) {
-    res.send(data)
+    res.send(arrPerson)
 })
 app.post('/login', function (req,res) {
     const username = req.body.username;
     const password= req.body.password;
     var i ;
-    for(i = 0 ; i < data.length ; i++){
-        if (username == data[i].user && password == data[i].password){
+    for(i = 0 ; i < arrPerson.length ; i++){
+        if (username == arrPerson[i].user && password == arrPerson[i].pass){
             res.json({
                 result  : true,
                 massager : "Dang nhap thanh cong" ,
-                data : [data[i].id]
+                data : arrPerson
 
             })
         }
@@ -33,6 +45,7 @@ app.post('/login', function (req,res) {
             })
         }
     }
+
 
     // res.send('Hello login')
     
