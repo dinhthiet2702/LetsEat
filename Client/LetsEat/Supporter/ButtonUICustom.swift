@@ -9,7 +9,13 @@
 import Foundation
 import UIKit
 extension UIButton {
-    func radiusCustome(){
-        self.layer.cornerRadius = 5
+    func radiusCustome(value:CGFloat){
+        self.layer.cornerRadius = value // edit add value
+    }
+    func customDropdown(textname:String) { //custom dropdown
+        self.layer.borderWidth = 1
+        self.layer.borderColor = UIColor.gray.cgColor
+        self.radiusCustome(value: 10)
+        self.setTitle("  \(textname)", for: .normal)
     }
 }

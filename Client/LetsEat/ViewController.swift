@@ -23,13 +23,20 @@ class ViewController: UIViewController {
 
     func setupView(){
         usernameLb.borderBottomOnly(color : #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1) )
-        loginBtn.radiusCustome()
+        loginBtn.radiusCustome(value: 5)
         passwordLb.borderBottomOnly(color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
     }
   
     @IBAction func usernameLb(_ sender: Any) {
         
     }
+    @IBAction func btn_Login(_ sender: UIButton) {
+        let moreInfoVC = sb.instantiateViewController(identifier: "MoreInfoViewController") as! MoreInfoViewController
+        
+        self.present(moreInfoVC, animated: true, completion: nil)
+    }
+    
+    
 }
 extension ViewController : UITextFieldDelegate{
     func textFieldDidBeginEditing(_ textField: UITextField) {
