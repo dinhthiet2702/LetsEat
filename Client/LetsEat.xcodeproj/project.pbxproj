@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8FDE2E4523A33F2C009806EA /* TextFieldCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE2E4423A33F2C009806EA /* TextFieldCustom.swift */; };
+		8FDE2E4723A37220009806EA /* ButtonUICustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE2E4623A37220009806EA /* ButtonUICustom.swift */; };
+		8FDE2E4A23A3757A009806EA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE2E4923A3757A009806EA /* User.swift */; };
 		E097FB0723A2C12700D8419F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E097FB0623A2C12700D8419F /* AppDelegate.swift */; };
 		E097FB0923A2C12700D8419F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E097FB0823A2C12700D8419F /* SceneDelegate.swift */; };
 		E097FB0B23A2C12700D8419F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E097FB0A23A2C12700D8419F /* ViewController.swift */; };
@@ -16,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8FDE2E4423A33F2C009806EA /* TextFieldCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCustom.swift; sourceTree = "<group>"; };
+		8FDE2E4623A37220009806EA /* ButtonUICustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonUICustom.swift; sourceTree = "<group>"; };
+		8FDE2E4923A3757A009806EA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E097FB0323A2C12700D8419F /* LetsEat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsEat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E097FB0623A2C12700D8419F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E097FB0823A2C12700D8419F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +43,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8FDE2E4323A33F05009806EA /* Supporter */ = {
+			isa = PBXGroup;
+			children = (
+				8FDE2E4423A33F2C009806EA /* TextFieldCustom.swift */,
+				8FDE2E4623A37220009806EA /* ButtonUICustom.swift */,
+			);
+			path = Supporter;
+			sourceTree = "<group>";
+		};
+		8FDE2E4823A37567009806EA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8FDE2E4923A3757A009806EA /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		E097FAFA23A2C12700D8419F = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +79,8 @@
 		E097FB0523A2C12700D8419F /* LetsEat */ = {
 			isa = PBXGroup;
 			children = (
+				8FDE2E4823A37567009806EA /* Model */,
+				8FDE2E4323A33F05009806EA /* Supporter */,
 				E097FB0623A2C12700D8419F /* AppDelegate.swift */,
 				E097FB0823A2C12700D8419F /* SceneDelegate.swift */,
 				E097FB0A23A2C12700D8419F /* ViewController.swift */,
@@ -138,7 +163,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FDE2E4523A33F2C009806EA /* TextFieldCustom.swift in Sources */,
 				E097FB0B23A2C12700D8419F /* ViewController.swift in Sources */,
+				8FDE2E4A23A3757A009806EA /* User.swift in Sources */,
+				8FDE2E4723A37220009806EA /* ButtonUICustom.swift in Sources */,
 				E097FB0723A2C12700D8419F /* AppDelegate.swift in Sources */,
 				E097FB0923A2C12700D8419F /* SceneDelegate.swift in Sources */,
 			);

@@ -7,3 +7,9 @@
 //
 
 import Foundation
+import UIKit
+extension UIButton {
+    func radiusCustome(){
+        self.layer.cornerRadius = 5
+    }
+}
