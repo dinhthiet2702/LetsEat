@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: TransparentBarNavViewController {
     let nameImg : [String] = ["Ico-fettle-proper"]
     @IBOutlet weak var usernameLb: UITextField!
     @IBOutlet weak var loginBtn: UIButton!
@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     @IBAction func btn_Login(_ sender: UIButton) {
         let moreInfoVC = sb.instantiateViewController(identifier: "MoreInfoViewController") as! MoreInfoViewController
         
-        self.present(moreInfoVC, animated: true, completion: nil)
+        self.navigationController?.pushViewController(moreInfoVC, animated: true)
     }
     
     
