@@ -29,9 +29,6 @@ class Favorite_FoodViewController: TransparentBarNavViewController {
                          imgFoodLocation(nameImg: "mon-phap", nameFood: "Món Pháp"),
                          imgFoodLocation(nameImg: "mon-agentina", nameFood: "Món Agentina")
         ]
-        
-        
-        
         hideButtonBack()
         btnNext.radiusCustome(value: 5)
     }
@@ -55,6 +52,7 @@ extension Favorite_FoodViewController: UICollectionViewDataSource, UICollectionV
         collectionView.reloadItems(at: [indexPath])
         let cell = collectionView.cellForItem(at: indexPath)
         cell?.layer.borderWidth = 180
+        cell?.layer.cornerRadius = 10
         cell?.layer.borderColor = UIColor(cgColor: #colorLiteral(red: 0.003797804937, green: 0.5666219592, blue: 0.7788453102, alpha: 0.5)).cgColor
         return true
     }

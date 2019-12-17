@@ -16,6 +16,7 @@
 		E015E84123A565020078220D /* ButtonUIAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E015E84023A565020078220D /* ButtonUIAction.swift */; };
 		E03DBD4523A3EB6600573AED /* MoreInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03DBD4423A3EB6600573AED /* MoreInfoViewController.swift */; };
 		E03DBD4723A3EC5100573AED /* Main_Storybroad.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03DBD4623A3EC5100573AED /* Main_Storybroad.swift */; };
+		E07803A423A95EF60072D1C4 /* BaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07803A323A95EF60072D1C4 /* BaseNavigationViewController.swift */; };
 		E097FB0723A2C12700D8419F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E097FB0623A2C12700D8419F /* AppDelegate.swift */; };
 		E097FB0923A2C12700D8419F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E097FB0823A2C12700D8419F /* SceneDelegate.swift */; };
 		E097FB0B23A2C12700D8419F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E097FB0A23A2C12700D8419F /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 		E015E84023A565020078220D /* ButtonUIAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonUIAction.swift; sourceTree = "<group>"; };
 		E03DBD4423A3EB6600573AED /* MoreInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInfoViewController.swift; sourceTree = "<group>"; };
 		E03DBD4623A3EC5100573AED /* Main_Storybroad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main_Storybroad.swift; sourceTree = "<group>"; };
+		E07803A323A95EF60072D1C4 /* BaseNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationViewController.swift; sourceTree = "<group>"; };
 		E097FB0323A2C12700D8419F /* LetsEat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsEat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E097FB0623A2C12700D8419F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E097FB0823A2C12700D8419F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +93,22 @@
 			path = Location_Language;
 			sourceTree = "<group>";
 		};
+		E07803A523A95EFF0072D1C4 /* MoreInfo */ = {
+			isa = PBXGroup;
+			children = (
+				E03DBD4423A3EB6600573AED /* MoreInfoViewController.swift */,
+			);
+			path = MoreInfo;
+			sourceTree = "<group>";
+		};
+		E07803A623A95F080072D1C4 /* BaseNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				E07803A323A95EF60072D1C4 /* BaseNavigationViewController.swift */,
+			);
+			path = BaseNavigation;
+			sourceTree = "<group>";
+		};
 		E097FAFA23A2C12700D8419F = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +128,8 @@
 		E097FB0523A2C12700D8419F /* LetsEat */ = {
 			isa = PBXGroup;
 			children = (
+				E07803A623A95F080072D1C4 /* BaseNavigation */,
+				E07803A523A95EFF0072D1C4 /* MoreInfo */,
 				E0C9D94123A7EDD2002D3149 /*  Favorite_Food */,
 				E015E83B23A556F00078220D /* Location_Language */,
 				8FDE2E4823A37567009806EA /* Model */,
@@ -121,7 +141,6 @@
 				E097FB0F23A2C12900D8419F /* Assets.xcassets */,
 				E097FB1123A2C12900D8419F /* LaunchScreen.storyboard */,
 				E097FB1423A2C12900D8419F /* Info.plist */,
-				E03DBD4423A3EB6600573AED /* MoreInfoViewController.swift */,
 			);
 			path = LetsEat;
 			sourceTree = "<group>";
@@ -209,6 +228,7 @@
 				8FDE2E4523A33F2C009806EA /* TextFieldCustom.swift in Sources */,
 				E0C9D94B23A800BD002D3149 /* imgFood.swift in Sources */,
 				E015E83D23A557260078220D /* Location_LanguageViewController.swift in Sources */,
+				E07803A423A95EF60072D1C4 /* BaseNavigationViewController.swift in Sources */,
 				E015E83A23A551CF0078220D /* TransparentBarNavViewController.swift in Sources */,
 				E015E84123A565020078220D /* ButtonUIAction.swift in Sources */,
 				E097FB0B23A2C12700D8419F /* ViewController.swift in Sources */,
