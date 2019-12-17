@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Cell: UITableViewCell {
+class Location_LanguageCell: UITableViewCell {
     @IBOutlet weak var textname: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()

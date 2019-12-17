@@ -25,7 +25,7 @@ extension Location_LanguageViewController:UITableViewDelegate,UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! Cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Location_LanguageCell", for: indexPath) as! Location_LanguageCell
         cell.textname.text = arrLocal_Lang[indexPath.row]
         return cell
     }

@@ -55,6 +55,11 @@ class MoreInfoViewController: TransparentBarNavViewController {
     @IBAction func checkUnknow(_ sender: UIButton) {
         sender.checkGender(radioUncheck1: btnRadioMale, radioUncheck2: btnRadioFemale)
     }
+    @IBAction func Next(_ sender: UIButton) {
+        let favFoodVC = sb.instantiateViewController(identifier: "Favorite_FoodViewController") as! Favorite_FoodViewController
+        
+        self.navigationController?.pushViewController(favFoodVC, animated: true)
+    }
     
 
 }
