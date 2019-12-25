@@ -32,6 +32,10 @@ class Favorite_FoodViewController: TransparentBarNavViewController {
         hideButtonBack()
         btnNext.radiusCustome(value: 5)
     }
+    @IBAction func Next(_ sender: UIButton) {
+        let WhereEats = sb.instantiateViewController(identifier: "WhereEatsViewController") as! WhereEatsViewController
+        self.navigationController?.pushViewController(WhereEats, animated: true)
+    }
     
 }
 extension Favorite_FoodViewController: UICollectionViewDataSource, UICollectionViewDelegate{
@@ -41,17 +45,16 @@ extension Favorite_FoodViewController: UICollectionViewDataSource, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Favorite_FoodCellList", for: indexPath) as! Favorite_FoodCellList
-        cell.imgFood.image = UIImage(named: arrImgCatgory[indexPath.item].nameImg)
+        cell.bindData(img: arrImgCatgory[indexPath.item])
         cell.imgFood.layer.cornerRadius = 10
         cell.contentView.layer.cornerRadius = 10
         cell.contentView.clipsToBounds = true
-        cell.lbNameFood.text = arrImgCatgory[indexPath.item].nameFood
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         collectionView.reloadItems(at: [indexPath])
         let cell = collectionView.cellForItem(at: indexPath)
-        cell?.layer.borderWidth = 180
+        cell?.layer.borderWidth = (cell?.contentView.frame.width)!
         cell?.layer.cornerRadius = 10
         cell?.layer.borderColor = UIColor(cgColor: #colorLiteral(red: 0.003797804937, green: 0.5666219592, blue: 0.7788453102, alpha: 0.5)).cgColor
         return true

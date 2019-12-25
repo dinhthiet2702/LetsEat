@@ -11,6 +11,9 @@ import UIKit
 class Favorite_FoodCellList: UICollectionViewCell {
     @IBOutlet weak var imgFood: UIImageView!
     @IBOutlet weak var lbNameFood: UILabel!
-    
+    func bindData(img: imgFoodLocation) {
+        imgFood.image = UIImage(named: img.nameImg)
+        lbNameFood.text = img.nameFood
+    }
 }
 

@@ -9,7 +9,7 @@
 import UIKit
 
 class TransparentBarNavViewController: UIViewController {
-
+    let searchBar = UISearchBar()
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
@@ -30,4 +30,11 @@ class TransparentBarNavViewController: UIViewController {
     }
     */
 
+}
+extension TransparentBarNavViewController:UISearchBarDelegate{
+    func creatSearchBar(placeholder:String){
+        searchBar.placeholder = placeholder
+        searchBar.delegate = self
+        navigationItem.titleView = searchBar
+    }
 }
