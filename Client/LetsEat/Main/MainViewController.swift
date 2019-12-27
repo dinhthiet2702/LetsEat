@@ -12,6 +12,8 @@ class MainViewController: TransparentBarNavViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imgHeader: UIImageView!
     var arrMenu:[Menu]!
+    var arrFood:[imgFoodLocation]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,6 +27,11 @@ class MainViewController: TransparentBarNavViewController {
             Menu(imgMenu: "rewards", nameMenu: "Rewards")
         ]
         
+        arrFood = [
+            imgFoodLocation(nameImg: "beef_steak", nameFood: "Beef Steak"),
+            imgFoodLocation(nameImg: "my_y", nameFood: "Mỳ Ý"),
+            imgFoodLocation(nameImg: "ga_phomai", nameFood: "Gà Phô Mai")
+        ]
         
         creatSearchBar(placeholder: "Tìm kiếm nhanh")
         
@@ -49,8 +56,8 @@ extension MainViewController:UITableViewDelegate, UITableViewDataSource{
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell", for: indexPath) as! LocationCell
-            
-            
+            cell.arrFood = self.arrFood
+            cell.layer.cornerRadius = 30
             return cell
         }
         
@@ -60,7 +67,7 @@ extension MainViewController:UITableViewDelegate, UITableViewDataSource{
         case 0:
             return 200
         default:
-            return 178
+            return 300
         }
     }
 }

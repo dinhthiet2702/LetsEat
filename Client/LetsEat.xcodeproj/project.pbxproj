@@ -39,6 +39,7 @@
 		E0D1BDA923B13AAB00E4729C /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D1BDA823B13AAB00E4729C /* LocationCell.swift */; };
 		E0E1534223B3DC0D00EC4F73 /* MenuCellList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E1534123B3DC0D00EC4F73 /* MenuCellList.swift */; };
 		E0E1534423B3E16900EC4F73 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E1534323B3E16900EC4F73 /* Menu.swift */; };
+		E0EE3C7923B52D6300F34750 /* LocationCellList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EE3C7823B52D6300F34750 /* LocationCellList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		E0D1BDA823B13AAB00E4729C /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		E0E1534123B3DC0D00EC4F73 /* MenuCellList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCellList.swift; sourceTree = "<group>"; };
 		E0E1534323B3E16900EC4F73 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		E0EE3C7823B52D6300F34750 /* LocationCellList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCellList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +198,7 @@
 				E0D1BDA623B13A9700E4729C /* MenuCell.swift */,
 				E0D1BDA823B13AAB00E4729C /* LocationCell.swift */,
 				E0E1534123B3DC0D00EC4F73 /* MenuCellList.swift */,
+				E0EE3C7823B52D6300F34750 /* LocationCellList.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				8FDE2E4A23A3757A009806EA /* User.swift in Sources */,
 				E03DBD4523A3EB6600573AED /* MoreInfoViewController.swift in Sources */,
 				E0C9D94723A7EE65002D3149 /* Favorite_FoodCellList.swift in Sources */,
+				E0EE3C7923B52D6300F34750 /* LocationCellList.swift in Sources */,
 				E0E1534423B3E16900EC4F73 /* Menu.swift in Sources */,
 				E0D1BDA323B132D700E4729C /* NotificationsViewController.swift in Sources */,
 				8FDE2E4723A37220009806EA /* ButtonUICustom.swift in Sources */,

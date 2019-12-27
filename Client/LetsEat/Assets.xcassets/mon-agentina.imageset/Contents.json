@@ -2,12 +2,10 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "mon-argentina.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "e023d9083fb9440fabab67053b132b77@2x.png",
       "scale" : "2x"
     },
     {
