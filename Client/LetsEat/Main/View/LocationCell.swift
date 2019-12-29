@@ -10,7 +10,7 @@ import UIKit
 
 class LocationCell: UITableViewCell {
     @IBOutlet weak var collectionview: UICollectionView!
-    var arrFood:[imgFoodLocation]!
+    var arrFood:[imgFood]!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

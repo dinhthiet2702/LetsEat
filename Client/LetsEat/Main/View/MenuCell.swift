@@ -11,7 +11,7 @@ import UIKit
 class MenuCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     var arrMenu:[Menu]!
-    
+    var pushView:((_ indexPath:Int)->Void)! = nil
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -35,6 +35,10 @@ extension MenuCell: UICollectionViewDelegate, UICollectionViewDataSource{
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.item)
+        if pushView != nil{
+            pushView(indexPath.item)
+        }
+        
+        
     }
 }

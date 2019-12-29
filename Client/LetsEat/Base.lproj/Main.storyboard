@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pvu-Zq-8IU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pvu-Zq-8IU">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -678,6 +678,66 @@
             </objects>
             <point key="canvasLocation" x="2888" y="1552"/>
         </scene>
+        <!--Food Blog View Controller-->
+        <scene sceneID="NZb-nc-zwt">
+            <objects>
+                <viewController storyboardIdentifier="FoodBlogViewController" id="If5-nS-5lx" customClass="FoodBlogViewController" customModule="LetsEat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2Xe-eM-pl9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="gvB-yF-ACs"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PpP-fE-zh2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2501" y="2298"/>
+        </scene>
+        <!--Delivery View Controller-->
+        <scene sceneID="fQ5-9W-iL3">
+            <objects>
+                <viewController storyboardIdentifier="DeliveryViewController" id="IPP-rc-bkT" customClass="DeliveryViewController" customModule="LetsEat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MUY-PJ-UcG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jgi-mw-XZl">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="198" id="0Oc-Ex-Jaz">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="198"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0Oc-Ex-Jaz" id="q2B-tk-0bX">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="198"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="313" id="3Zm-oM-I6i">
+                                        <rect key="frame" x="0.0" y="226" width="414" height="313"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Zm-oM-I6i" id="NLf-r9-c4E">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="313"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Jgi-mw-XZl" firstAttribute="leading" secondItem="xV6-gi-vMB" secondAttribute="leading" id="0Lu-eY-wrX"/>
+                            <constraint firstItem="Jgi-mw-XZl" firstAttribute="top" secondItem="xV6-gi-vMB" secondAttribute="top" id="2JY-LB-XG5"/>
+                            <constraint firstItem="xV6-gi-vMB" firstAttribute="trailing" secondItem="Jgi-mw-XZl" secondAttribute="trailing" id="bz4-i2-7g3"/>
+                            <constraint firstItem="xV6-gi-vMB" firstAttribute="bottom" secondItem="Jgi-mw-XZl" secondAttribute="bottom" id="pcV-LZ-Lbv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xV6-gi-vMB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SFF-En-Jqq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1726.0869565217392" y="2297.5446428571427"/>
+        </scene>
         <!--Item 1-->
         <scene sceneID="qKc-Dk-5XW">
             <objects>
@@ -686,18 +746,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="klv-2l-qES">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="215"/>
-                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nNG-hj-db7">
-                                <rect key="frame" x="0.0" y="185" width="414" height="677"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="sectionIndexColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="4Iq-Rs-dBQ" customClass="HeaderView" customModule="LetsEat" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="e3J-95-xae">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="e3J-95-xae" firstAttribute="top" secondItem="4Iq-Rs-dBQ" secondAttribute="top" id="IN3-FF-z21"/>
+                                        <constraint firstAttribute="trailing" secondItem="e3J-95-xae" secondAttribute="trailing" id="K19-Bn-7MD"/>
+                                        <constraint firstAttribute="bottom" secondItem="e3J-95-xae" secondAttribute="bottom" id="VZY-yj-4M9"/>
+                                        <constraint firstItem="e3J-95-xae" firstAttribute="leading" secondItem="4Iq-Rs-dBQ" secondAttribute="leading" id="xeB-84-7Mu"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="imgHeader" destination="e3J-95-xae" id="RFx-cF-LQu"/>
+                                    </connections>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuCell" rowHeight="200" id="eCc-go-ybt" customClass="MenuCell" customModule="LetsEat" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="200"/>
+                                        <rect key="frame" x="0.0" y="128" width="414" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eCc-go-ybt" id="pWU-RV-aHS">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
@@ -705,7 +782,7 @@
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nn7-GO-9L0">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
-                                                    <color key="backgroundColor" systemColor="systemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vBS-v6-HbI">
                                                         <size key="itemSize" width="80" height="73"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -767,7 +844,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationCell" rowHeight="300" id="A0a-oc-qBU" customClass="LocationCell" customModule="LetsEat" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="228" width="414" height="300"/>
+                                        <rect key="frame" x="0.0" y="328" width="414" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="A0a-oc-qBU" id="O3v-0L-hC1">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
@@ -860,22 +937,17 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="nNG-hj-db7" firstAttribute="top" secondItem="klv-2l-qES" secondAttribute="bottom" constant="-30" id="Cua-Xp-AUG"/>
-                            <constraint firstItem="klv-2l-qES" firstAttribute="height" secondItem="xxU-sO-7bv" secondAttribute="height" multiplier="0.24" id="Knf-h9-osy"/>
-                            <constraint firstItem="klv-2l-qES" firstAttribute="top" secondItem="xxU-sO-7bv" secondAttribute="top" id="QEt-dK-sra"/>
-                            <constraint firstItem="klv-2l-qES" firstAttribute="leading" secondItem="UnM-mn-8AA" secondAttribute="leading" id="RUq-Bp-m9k"/>
-                            <constraint firstItem="klv-2l-qES" firstAttribute="trailing" secondItem="UnM-mn-8AA" secondAttribute="trailing" id="cul-Od-cYJ"/>
-                            <constraint firstItem="nNG-hj-db7" firstAttribute="bottom" secondItem="UnM-mn-8AA" secondAttribute="bottom" id="hgK-Tu-ZhZ"/>
-                            <constraint firstItem="nNG-hj-db7" firstAttribute="leading" secondItem="UnM-mn-8AA" secondAttribute="leading" id="qfh-Gu-K6D"/>
-                            <constraint firstItem="nNG-hj-db7" firstAttribute="trailing" secondItem="UnM-mn-8AA" secondAttribute="trailing" id="vjj-Cq-DqN"/>
+                            <constraint firstItem="nNG-hj-db7" firstAttribute="trailing" secondItem="UnM-mn-8AA" secondAttribute="trailing" id="7gM-Br-YHY"/>
+                            <constraint firstItem="nNG-hj-db7" firstAttribute="leading" secondItem="UnM-mn-8AA" secondAttribute="leading" id="9xb-et-ssb"/>
+                            <constraint firstItem="nNG-hj-db7" firstAttribute="bottom" secondItem="UnM-mn-8AA" secondAttribute="bottom" id="EeQ-he-3a3"/>
+                            <constraint firstItem="nNG-hj-db7" firstAttribute="top" secondItem="xxU-sO-7bv" secondAttribute="top" id="y4G-7Y-htI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UnM-mn-8AA"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="zLr-ie-2og"/>
                     <connections>
-                        <outlet property="imgHeader" destination="klv-2l-qES" id="KKL-p2-65Z"/>
                         <outlet property="tableView" destination="nNG-hj-db7" id="Q4X-on-2ez"/>
                     </connections>
                 </viewController>

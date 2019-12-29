@@ -19,6 +19,13 @@ class TransparentBarNavViewController: UIViewController {
         let backButton = UIBarButtonItem(title: "", style: .plain, target: navigationController, action: nil)
         navigationItem.leftBarButtonItem = backButton
     }
+    func CustomBackItem() {
+           let segmentBarItem = UIBarButtonItem(image: UIImage(named: "back")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), style: .plain, target: self, action: #selector(back))
+           navigationItem.leftBarButtonItem = segmentBarItem
+       }
+        @objc func back() {
+           self.navigationController?.popViewController(animated: true)
+       }
 
     /*
     // MARK: - Navigation

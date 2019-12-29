@@ -11,7 +11,7 @@ import UIKit
 class LocationCellList: UICollectionViewCell {
     @IBOutlet weak var imgFood: UIImageView!
     @IBOutlet weak var lbName: UILabel!
-    func bindData(food:imgFoodLocation) {
+    func bindData(food:imgFood) {
         imgFood.image = UIImage(named: food.nameImg)
         lbName.text = food.nameFood
     }
