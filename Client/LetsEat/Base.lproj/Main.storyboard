@@ -701,38 +701,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jgi-mw-XZl">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lN9-AP-kIW">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <inset key="separatorInset" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="rwz-ek-Jke" customClass="FSPagerView" customModule="FSPagerView">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="224"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="198" id="0Oc-Ex-Jaz">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="198"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeaderCell" rowHeight="20" id="buB-Sk-oew" customClass="HeaderCell" customModule="LetsEat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="252" width="414" height="20"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0Oc-Ex-Jaz" id="q2B-tk-0bX">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="198"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="buB-Sk-oew" id="UBF-i1-bgx">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phù hợp với bạn nhất" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3B1-sO-dgw">
+                                                    <rect key="frame" x="20" y="0.0" width="394" height="20"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="3B1-sO-dgw" firstAttribute="top" secondItem="UBF-i1-bgx" secondAttribute="top" id="AE6-03-LZe"/>
+                                                <constraint firstItem="3B1-sO-dgw" firstAttribute="leading" secondItem="UBF-i1-bgx" secondAttribute="leading" constant="20" id="BeO-oN-OZb"/>
+                                                <constraint firstAttribute="bottom" secondItem="3B1-sO-dgw" secondAttribute="bottom" id="R9t-I2-4zo"/>
+                                                <constraint firstAttribute="trailing" secondItem="3B1-sO-dgw" secondAttribute="trailing" id="i1P-Fh-cMe"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="313" id="3Zm-oM-I6i">
-                                        <rect key="frame" x="0.0" y="226" width="414" height="313"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoodCell" id="w47-Xg-UaB" customClass="FoodCell" customModule="LetsEat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="272" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Zm-oM-I6i" id="NLf-r9-c4E">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="313"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w47-Xg-UaB" id="4j4-X0-4TK">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="IPP-rc-bkT" id="Boi-fT-hQH"/>
+                                    <outlet property="delegate" destination="IPP-rc-bkT" id="9eM-1K-uOM"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Jgi-mw-XZl" firstAttribute="leading" secondItem="xV6-gi-vMB" secondAttribute="leading" id="0Lu-eY-wrX"/>
-                            <constraint firstItem="Jgi-mw-XZl" firstAttribute="top" secondItem="xV6-gi-vMB" secondAttribute="top" id="2JY-LB-XG5"/>
-                            <constraint firstItem="xV6-gi-vMB" firstAttribute="trailing" secondItem="Jgi-mw-XZl" secondAttribute="trailing" id="bz4-i2-7g3"/>
-                            <constraint firstItem="xV6-gi-vMB" firstAttribute="bottom" secondItem="Jgi-mw-XZl" secondAttribute="bottom" id="pcV-LZ-Lbv"/>
+                            <constraint firstItem="lN9-AP-kIW" firstAttribute="trailing" secondItem="xV6-gi-vMB" secondAttribute="trailing" id="g0u-rF-mnv"/>
+                            <constraint firstItem="lN9-AP-kIW" firstAttribute="bottom" secondItem="xV6-gi-vMB" secondAttribute="bottom" id="mWF-LS-1GZ"/>
+                            <constraint firstItem="lN9-AP-kIW" firstAttribute="leading" secondItem="xV6-gi-vMB" secondAttribute="leading" id="nnK-0A-O1B"/>
+                            <constraint firstItem="lN9-AP-kIW" firstAttribute="top" secondItem="xV6-gi-vMB" secondAttribute="top" id="sn2-ur-FjM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xV6-gi-vMB"/>
                     </view>
+                    <connections>
+                        <outlet property="pagerView" destination="rwz-ek-Jke" id="Im7-eG-2LZ"/>
+                        <outlet property="tableView" destination="lN9-AP-kIW" id="Qlz-Le-nWR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SFF-En-Jqq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

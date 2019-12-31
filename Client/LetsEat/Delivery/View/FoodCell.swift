@@ -1,14 +1,14 @@
 //
-//  RecommendEatsCell.swift
+//  FoodCell.swift
 //  LetsEat
 //
-//  Created by thiet on 12/29/19.
-//  Copyright © 2019 thiet. All rights reserved.
+//  Created by thiet on 1/1/20.
+//  Copyright © 2020 thiet. All rights reserved.
 //
 
 import UIKit
 
-class RecommendEatsCell: UITableViewCell {
+class FoodCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
