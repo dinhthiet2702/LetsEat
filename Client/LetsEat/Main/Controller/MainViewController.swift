@@ -19,6 +19,7 @@ class MainViewController: TransparentBarNavViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideButtonBack()
         headerView = tableView.tableHeaderView as? HeaderView
         tableView.tableHeaderView = nil
         tableView.addSubview(headerView)

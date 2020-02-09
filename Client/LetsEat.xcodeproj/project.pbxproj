@@ -16,6 +16,7 @@
 		E015E83F23A557400078220D /* Location_LanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E015E83E23A557400078220D /* Location_LanguageCell.swift */; };
 		E015E84123A565020078220D /* ButtonUIAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E015E84023A565020078220D /* ButtonUIAction.swift */; };
 		E0220FF523AF52050069C4A5 /* WhereEatsCellList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0220FF423AF52050069C4A5 /* WhereEatsCellList.swift */; };
+		E02448FA23BE601400BEA5AD /* MenuFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02448F923BE601400BEA5AD /* MenuFoodViewController.swift */; };
 		E02D3D5F23B8C08A004FA3C9 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02D3D5E23B8C08A004FA3C9 /* HeaderView.swift */; };
 		E02D3D6C23B8DEB2004FA3C9 /* imgFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02D3D6B23B8DEB2004FA3C9 /* imgFood.swift */; };
 		E036BCE923AEB6E60028DB5D /* WhereEatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E036BCE823AEB6E60028DB5D /* WhereEatsViewController.swift */; };
@@ -27,6 +28,8 @@
 		E07803A423A95EF60072D1C4 /* BaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07803A323A95EF60072D1C4 /* BaseNavigationViewController.swift */; };
 		E080B49323BBCDF9002789BF /* FoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E080B49223BBCDF9002789BF /* FoodCell.swift */; };
 		E080B49723BBD957002789BF /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E080B49623BBD957002789BF /* HeaderCell.swift */; };
+		E0874DF423EC48D7008348F5 /* MenuFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0874DF323EC48D7008348F5 /* MenuFood.swift */; };
+		E0874DF923EC608A008348F5 /* FoodsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0874DF823EC608A008348F5 /* FoodsCell.swift */; };
 		E097FB0723A2C12700D8419F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E097FB0623A2C12700D8419F /* AppDelegate.swift */; };
 		E097FB0923A2C12700D8419F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E097FB0823A2C12700D8419F /* SceneDelegate.swift */; };
 		E097FB0B23A2C12700D8419F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E097FB0A23A2C12700D8419F /* ViewController.swift */; };
@@ -61,6 +64,7 @@
 		E015E83E23A557400078220D /* Location_LanguageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location_LanguageCell.swift; sourceTree = "<group>"; };
 		E015E84023A565020078220D /* ButtonUIAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonUIAction.swift; sourceTree = "<group>"; };
 		E0220FF423AF52050069C4A5 /* WhereEatsCellList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhereEatsCellList.swift; sourceTree = "<group>"; };
+		E02448F923BE601400BEA5AD /* MenuFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuFoodViewController.swift; sourceTree = "<group>"; };
 		E02D3D5E23B8C08A004FA3C9 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		E02D3D6B23B8DEB2004FA3C9 /* imgFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imgFood.swift; sourceTree = "<group>"; };
 		E036BCE823AEB6E60028DB5D /* WhereEatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhereEatsViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +76,8 @@
 		E07803A323A95EF60072D1C4 /* BaseNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationViewController.swift; sourceTree = "<group>"; };
 		E080B49223BBCDF9002789BF /* FoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCell.swift; sourceTree = "<group>"; };
 		E080B49623BBD957002789BF /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
+		E0874DF323EC48D7008348F5 /* MenuFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuFood.swift; sourceTree = "<group>"; };
+		E0874DF823EC608A008348F5 /* FoodsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsCell.swift; sourceTree = "<group>"; };
 		E097FB0323A2C12700D8419F /* LetsEat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsEat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E097FB0623A2C12700D8419F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E097FB0823A2C12700D8419F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -260,6 +266,7 @@
 		E06C7AB823B7B51C0073CA58 /* Delivery */ = {
 			isa = PBXGroup;
 			children = (
+				E0874DF223EC48B8008348F5 /* Model */,
 				E080B49823BBDC38002789BF /* Controller */,
 				E075368423BB8FFC0009FA5A /* View */,
 			);
@@ -308,6 +315,39 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		E0874DF223EC48B8008348F5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E0874DF323EC48D7008348F5 /* MenuFood.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E0874DF523EC5DBB008348F5 /* MenuFood */ = {
+			isa = PBXGroup;
+			children = (
+				E0874DF723EC604E008348F5 /* Controller */,
+				E0874DF623EC603F008348F5 /* View */,
+			);
+			path = MenuFood;
+			sourceTree = "<group>";
+		};
+		E0874DF623EC603F008348F5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E0874DF823EC608A008348F5 /* FoodsCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E0874DF723EC604E008348F5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E02448F923BE601400BEA5AD /* MenuFoodViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		E097FAFA23A2C12700D8419F = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +369,7 @@
 		E097FB0523A2C12700D8419F /* LetsEat */ = {
 			isa = PBXGroup;
 			children = (
+				E0874DF523EC5DBB008348F5 /* MenuFood */,
 				E06C7ABB23B7BA3F0073CA58 /* FoodBlog */,
 				E06C7AB823B7B51C0073CA58 /* Delivery */,
 				E0D1BD9F23B1329E00E4729C /* Profile */,
@@ -525,6 +566,7 @@
 				E02D3D6C23B8DEB2004FA3C9 /* imgFood.swift in Sources */,
 				E080B49323BBCDF9002789BF /* FoodCell.swift in Sources */,
 				8FDE2E4523A33F2C009806EA /* TextFieldCustom.swift in Sources */,
+				E0874DF423EC48D7008348F5 /* MenuFood.swift in Sources */,
 				E080B49723BBD957002789BF /* HeaderCell.swift in Sources */,
 				E06C7ABD23B7BA520073CA58 /* FoodBlogViewController.swift in Sources */,
 				E0E1534223B3DC0D00EC4F73 /* MenuCellList.swift in Sources */,
@@ -548,9 +590,11 @@
 				E0E1534423B3E16900EC4F73 /* Menu.swift in Sources */,
 				E02D3D5F23B8C08A004FA3C9 /* HeaderView.swift in Sources */,
 				E0D1BDA323B132D700E4729C /* NotificationsViewController.swift in Sources */,
+				E02448FA23BE601400BEA5AD /* MenuFoodViewController.swift in Sources */,
 				8FDE2E4723A37220009806EA /* ButtonUICustom.swift in Sources */,
 				E03DBD4723A3EC5100573AED /* Main_Storybroad.swift in Sources */,
 				E015E83F23A557400078220D /* Location_LanguageCell.swift in Sources */,
+				E0874DF923EC608A008348F5 /* FoodsCell.swift in Sources */,
 				E097FB0723A2C12700D8419F /* AppDelegate.swift in Sources */,
 				E097FB0923A2C12700D8419F /* SceneDelegate.swift in Sources */,
 				E0220FF523AF52050069C4A5 /* WhereEatsCellList.swift in Sources */,
@@ -639,6 +683,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Debug;
 		};
@@ -678,6 +723,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -689,10 +735,11 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				VALIDATE_PRODUCT = YES;
+				VALIDATE_PRODUCT = NO;
 			};
 			name = Release;
 		};
@@ -701,7 +748,10 @@
 			baseConfigurationReference = 5DAE3E451685E72A20279FD4 /* Pods-LetsEat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = LetsEat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -710,8 +760,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = thiet.LetsEat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -720,17 +771,22 @@
 			baseConfigurationReference = 758793506921DFDF9AC7B732 /* Pods-LetsEat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 57ACH3ESNQ;
 				INFOPLIST_FILE = LetsEat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = thiet.LetsEat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

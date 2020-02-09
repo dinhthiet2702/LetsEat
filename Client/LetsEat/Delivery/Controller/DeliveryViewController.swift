@@ -18,33 +18,35 @@ class DeliveryViewController: TransparentBarNavViewController {
             self.pagerView.transformer = FSPagerViewTransformer(type: .overlap)
             self.pagerView.itemSize = CGSize(width: 285, height: 180)
             self.pagerView.isInfinite = true //vo han hinh
-            self.pagerView.contentMode = .scaleAspectFit
-            self.pagerView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            self.pagerView.contentMode = .scaleToFill
             self.pagerView.automaticSlidingInterval = 3.0
         }
     }
     var arrCard:[String] = ["card1","card2"]
+    var arrFoodCategory:[MenuFood] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        arrFoodCategory = [
+            MenuFood(name: "FUMO - Beef Steak", imgFood: "fumo", food: [
+                Foods(nameFood: "Thịt nướng", imgFood: "", detailFood: "", FoodOptions: "chinh"),
+                Foods(nameFood: "Thịt nướng", imgFood: "", detailFood: "", FoodOptions: "chinh"),
+                Foods(nameFood: "Thịt nướng", imgFood: "", detailFood: "", FoodOptions: "chinh"),
+                Foods(nameFood: "Thịt nướng", imgFood: "", detailFood: "", FoodOptions: "chinh"),
+                Foods(nameFood: "Thịt nướng", imgFood: "", detailFood: "", FoodOptions: "phu"),
+                Foods(nameFood: "Thịt nướng", imgFood: "", detailFood: "", FoodOptions: "phu"),
+                Foods(nameFood: "Thịt nướng", imgFood: "", detailFood: "", FoodOptions: "phu")
+            ])
+        ]
         tableView.tableHeaderView?.backgroundColor = .white
         pagerView.dataSource = self
         pagerView.delegate = self
         creatSearchBar(placeholder: "Tìm kiếm món ăn, địa điểm")
         self.CustomBackItem()
+        
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 extension DeliveryViewController:FSPagerViewDataSource,FSPagerViewDelegate{
@@ -73,7 +75,7 @@ extension DeliveryViewController:UITableViewDelegate,UITableViewDataSource{
         case 0:
             return 1
         default:
-            return 10
+            return arrFoodCategory.count
         }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -83,7 +85,9 @@ extension DeliveryViewController:UITableViewDelegate,UITableViewDataSource{
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "FoodCell", for: indexPath) as! FoodCell
-            cell.textLabel?.text = "10"
+            cell.imgFood.layer.cornerRadius = 10
+            cell.imgFood.clipsToBounds = true
+            cell.bindData(mf: arrFoodCategory[indexPath.row])
             return cell
         }
         
@@ -92,9 +96,20 @@ extension DeliveryViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return 20
+            return 40
         default:
             return 100
+        }
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:
+            return
+        default:
+            let menuFood = sb.instantiateViewController(withIdentifier: "MenuFoodViewController") as! MenuFoodViewController
+            menuFood.titleView = self.arrFoodCategory[indexPath.row].name
+            self.navigationController?.pushViewController(menuFood, animated: true)
+            print(indexPath.row)
         }
     }
 }

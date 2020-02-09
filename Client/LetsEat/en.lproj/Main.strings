@@ -1,0 +1,99 @@
+
+/* Class = "UIButton"; normalTitle = "Tạo tài khoản ngay"; ObjectID = "0BW-vZ-nnN"; */
+"0BW-vZ-nnN.normalTitle" = "Tạo tài khoản ngay";
+
+/* Class = "UILabel"; text = "Món Ý - Steak"; ObjectID = "0Rr-DJ-1OG"; */
+"0Rr-DJ-1OG.text" = "Món Ý - Steak";
+
+/* Class = "UILabel"; text = "Quên mật khẩu ?"; ObjectID = "0eD-Hu-L7Q"; */
+"0eD-Hu-L7Q.text" = "Quên mật khẩu ?";
+
+/* Class = "UIButton"; normalTitle = "Đăng nhập"; ObjectID = "1SJ-Da-Hhd"; */
+"1SJ-Da-Hhd.normalTitle" = "Đăng nhập";
+
+/* Class = "UILabel"; text = "Phù hợp với bạn nhất"; ObjectID = "3B1-sO-dgw"; */
+"3B1-sO-dgw.text" = "Phù hợp với bạn nhất";
+
+/* Class = "UILabel"; text = "Nữ"; ObjectID = "6Bm-Sf-xXe"; */
+"6Bm-Sf-xXe.text" = "Nữ";
+
+/* Class = "UILabel"; text = "Mật khẩu :"; ObjectID = "6QH-aU-iml"; */
+"6QH-aU-iml.text" = "Mật khẩu :";
+
+/* Class = "UILabel"; text = "Dựa trên hàng nghìn địa điểm có trên Letseat, những câu trả lời này sẽ giúp bạn tìm được địa điểm nhanh và phù hợp nhất"; ObjectID = "8LI-e6-Lok"; */
+"8LI-e6-Lok.text" = "Dựa trên hàng nghìn địa điểm có trên Letseat, những câu trả lời này sẽ giúp bạn tìm được địa điểm nhanh và phù hợp nhất";
+
+/* Class = "UIButton"; normalTitle = "Tiếng Việt"; ObjectID = "DWW-sk-Ej8"; */
+"DWW-sk-Ej8.normalTitle" = "Tiếng Việt";
+
+/* Class = "UILabel"; text = "FUMO - Beef Steak"; ObjectID = "FsP-Hr-gwk"; */
+"FsP-Hr-gwk.text" = "FUMO - Beef Steak";
+
+/* Class = "UILabel"; text = "Tên tài khoản :"; ObjectID = "G52-9P-yCV"; */
+"G52-9P-yCV.text" = "Tên tài khoản :";
+
+/* Class = "UILabel"; text = "Bạn thích ăn ở những nơi nào?"; ObjectID = "GCo-Nb-YLN"; */
+"GCo-Nb-YLN.text" = "Bạn thích ăn ở những nơi nào?";
+
+/* Class = "UILabel"; text = "Địa điểm phù hợp với bạn"; ObjectID = "GFP-vJ-V3a"; */
+"GFP-vJ-V3a.text" = "Địa điểm phù hợp với bạn";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Irk-M1-VDi"; */
+"Irk-M1-VDi.text" = "Label";
+
+/* Class = "UILabel"; text = "Nam"; ObjectID = "O8l-vo-Pc1"; */
+"O8l-vo-Pc1.text" = "Nam";
+
+/* Class = "UILabel"; text = "Không rõ"; ObjectID = "PDw-Ak-maM"; */
+"PDw-Ak-maM.text" = "Không rõ";
+
+/* Class = "UIButton"; normalTitle = "TIẾP"; ObjectID = "PPM-ty-u4J"; */
+"PPM-ty-u4J.normalTitle" = "TIẾP";
+
+/* Class = "UILabel"; text = "Chọn giới tính của bạn"; ObjectID = "ScG-bz-w5u"; */
+"ScG-bz-w5u.text" = "Chọn giới tính của bạn";
+
+/* Class = "UILabel"; text = "Bạn là người mới ?"; ObjectID = "Tga-1C-wN7"; */
+"Tga-1C-wN7.text" = "Bạn là người mới ?";
+
+/* Class = "UILabel"; text = "Nền văn hoá ẩm thực bạn thích là?"; ObjectID = "XhY-zv-1hz"; */
+"XhY-zv-1hz.text" = "Nền văn hoá ẩm thực bạn thích là?";
+
+/* Class = "UILabel"; text = "Xin chào"; ObjectID = "bET-yi-MNv"; */
+"bET-yi-MNv.text" = "Xin chào";
+
+/* Class = "UILabel"; text = "Reservation"; ObjectID = "bYx-cc-RZk"; */
+"bYx-cc-RZk.text" = "Reservation";
+
+/* Class = "UIButton"; normalTitle = "Việt Nam"; ObjectID = "f4X-Ki-jXb"; */
+"f4X-Ki-jXb.normalTitle" = "Việt Nam";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "gHL-CO-hL7"; */
+"gHL-CO-hL7.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "TIẾP"; ObjectID = "gRZ-tW-FwE"; */
+"gRZ-tW-FwE.normalTitle" = "TIẾP";
+
+/* Class = "UIButton"; normalTitle = "TIẾP THEO"; ObjectID = "hBL-B6-f7j"; */
+"hBL-B6-f7j.normalTitle" = "TIẾP THEO";
+
+/* Class = "UILabel"; text = "Ngôn ngữ và địa điểm"; ObjectID = "hGd-Bc-ivw"; */
+"hGd-Bc-ivw.text" = "Ngôn ngữ và địa điểm";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "l1w-Se-uNM"; */
+"l1w-Se-uNM.text" = "Label";
+
+/* Class = "UILabel"; text = "Xin chào, Gia Nguyen"; ObjectID = "oSb-KN-q0t"; */
+"oSb-KN-q0t.text" = "Xin chào, Gia Nguyen";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "qGe-7r-uEc"; */
+"qGe-7r-uEc.text" = "Label";
+
+/* Class = "UILabel"; text = "Giảm 30% toàn menu"; ObjectID = "s7e-IZ-Izh"; */
+"s7e-IZ-Izh.text" = "Giảm 30% toàn menu";
+
+/* Class = "UITabBarItem"; title = "Item 2"; ObjectID = "tRZ-VZ-NrM"; */
+"tRZ-VZ-NrM.title" = "Item 2";
+
+/* Class = "UITabBarItem"; title = "Item 1"; ObjectID = "zLr-ie-2og"; */
+"zLr-ie-2og.title" = "Item 1";

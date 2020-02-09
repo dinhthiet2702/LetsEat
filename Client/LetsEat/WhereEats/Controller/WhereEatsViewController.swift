@@ -15,6 +15,7 @@ class WhereEatsViewController: TransparentBarNavViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.allowsMultipleSelection = true
+        btnNext.radiusCustome(value: 5)
         arrHinh = [
             imgWhereEats(imgName: "sang-trong", name: "Sang trọng"),
             imgWhereEats(imgName: "nha-hang", name: "Nhà hàng"),
@@ -25,6 +26,8 @@ class WhereEatsViewController: TransparentBarNavViewController {
         // Do any additional setup after loading the view.
     }
     @IBAction func Next(_ sender: Any) {
+        let MainVC = sb.instantiateViewController(identifier: "MainViewController") as! MainViewController
+        self.navigationController?.pushViewController(MainVC, animated: true)
     }
     
 
@@ -46,7 +49,7 @@ extension WhereEatsViewController:UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WhereEatsCellList", for: indexPath) as! WhereEatsCellList
-//        cell.binddata(img: arrHinh[indexPath.item])
+        cell.binddata(img: arrHinh[indexPath.item])
         cell.imgWhereEats.layer.cornerRadius = 10
         cell.contentView.layer.cornerRadius = 10
         return cell
