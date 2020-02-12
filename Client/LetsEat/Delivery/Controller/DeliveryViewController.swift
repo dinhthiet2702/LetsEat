@@ -29,13 +29,13 @@ class DeliveryViewController: TransparentBarNavViewController {
         super.viewDidLoad()
         arrFoodCategory = [
             MenuFood(name: "FUMO - Beef Steak", imgFood: "fumo", food: [
-                Foods(nameFood: "Thịt nướng", imgFood: "", detailFood: "", FoodOptions: "chinh"),
-                Foods(nameFood: "Thịt nướng", imgFood: "", detailFood: "", FoodOptions: "chinh"),
-                Foods(nameFood: "Thịt nướng", imgFood: "", detailFood: "", FoodOptions: "chinh"),
-                Foods(nameFood: "Thịt nướng", imgFood: "", detailFood: "", FoodOptions: "chinh"),
-                Foods(nameFood: "Thịt nướng", imgFood: "", detailFood: "", FoodOptions: "phu"),
-                Foods(nameFood: "Thịt nướng", imgFood: "", detailFood: "", FoodOptions: "phu"),
-                Foods(nameFood: "Thịt nướng", imgFood: "", detailFood: "", FoodOptions: "phu")
+                Foods(nameFood: "Thịt nướng", imgFood: "", detailFood: ""),
+                Foods(nameFood: "Thịt nướng", imgFood: "", detailFood: ""),
+                Foods(nameFood: "Thịt nướng", imgFood: "", detailFood: ""),
+                Foods(nameFood: "Thịt nướng", imgFood: "", detailFood: ""),
+                Foods(nameFood: "Thịt nướng", imgFood: "", detailFood: ""),
+                Foods(nameFood: "Thịt nướng", imgFood: "", detailFood: ""),
+                Foods(nameFood: "Thịt nướng", imgFood: "", detailFood: "")
             ])
         ]
         tableView.tableHeaderView?.backgroundColor = .white

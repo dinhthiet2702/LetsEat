@@ -10,24 +10,16 @@ import UIKit
 
 class MenuFoodViewController: TransparentBarNavViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var btnBill:UIButton!
+    @IBOutlet weak var viewBill: UIView!
     var pushView:(()-> Void)! = nil
     var titleView:String!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.CustomBackItem()
         navigationItem.title = titleView
+        btnBill.radiusCustome(value: 10)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 extension MenuFoodViewController:UITableViewDelegate,UITableViewDataSource{
@@ -39,7 +31,7 @@ extension MenuFoodViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return 5
+            return 3
         default:
             return 3
         }
@@ -57,15 +49,29 @@ extension MenuFoodViewController:UITableViewDelegate,UITableViewDataSource{
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "FoodsCell", for: indexPath) as! FoodsCell
+            cell.btnAdd.radiusCustome(value: 5)
             cell.didadd = {
+                
                 cell.viewAmout.isHidden = false
                 cell.btnAdd.isHidden = true
             }
             cell.didChangeAmount = { (amount) in
                 cell.tfAmount.text = String(amount)
-                if amount <= 0{
+                if (amount <= 0){
                     cell.viewAmout.isHidden = true
                     cell.btnAdd.isHidden = false
+                    UIView.animate(withDuration: 1, delay: 0, options: .curveEaseIn, animations: {
+                        self.viewBill.alpha = 0
+                    }) { (_) in
+                        self.viewBill.isHidden = true
+                    }
+                }
+                else{
+                    UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseIn, animations: {
+                        self.viewBill.alpha = 1
+                    }) { (_) in
+                        self.viewBill.isHidden = false
+                    }
                 }
                 print(amount)
                 self.tableView.reloadData()
@@ -73,18 +79,20 @@ extension MenuFoodViewController:UITableViewDelegate,UITableViewDataSource{
             }
             return cell
         default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "FoodsCell", for: indexPath) as! FoodsCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FoodsCell2", for: indexPath) as! FoodsCell2
             cell.didadd = {
                 cell.viewAmout.isHidden = false
                 cell.btnAdd.isHidden = true
             }
             cell.didChangeAmount = { (amount) in
                 cell.tfAmount.text = String(amount)
-                if amount <= 0{
+                if (amount <= 0){
                     cell.viewAmout.isHidden = true
                     cell.btnAdd.isHidden = false
                 }
+                print(amount)
                 self.tableView.reloadData()
+                
             }
             return cell
         }
@@ -95,6 +103,14 @@ extension MenuFoodViewController:UITableViewDelegate,UITableViewDataSource{
             return 150
         default:
             return 150
+        }
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:
+            print("\(indexPath.row)")
+        default:
+            print("\(indexPath.row)")
         }
     }
     

@@ -16,6 +16,5 @@ struct Foods {
     let nameFood:String
     let imgFood:String
     let detailFood:String
-    let FoodOptions:String
 }
 
