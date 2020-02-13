@@ -24,18 +24,37 @@ class DeliveryViewController: TransparentBarNavViewController {
     }
     var arrCard:[String] = ["card1","card2"]
     var arrFoodCategory:[MenuFood] = []
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         arrFoodCategory = [
-            MenuFood(name: "FUMO - Beef Steak", imgFood: "fumo", food: [
-                Foods(nameFood: "Thịt nướng", imgFood: "", detailFood: ""),
-                Foods(nameFood: "Thịt nướng", imgFood: "", detailFood: ""),
-                Foods(nameFood: "Thịt nướng", imgFood: "", detailFood: ""),
-                Foods(nameFood: "Thịt nướng", imgFood: "", detailFood: ""),
-                Foods(nameFood: "Thịt nướng", imgFood: "", detailFood: ""),
-                Foods(nameFood: "Thịt nướng", imgFood: "", detailFood: ""),
-                Foods(nameFood: "Thịt nướng", imgFood: "", detailFood: "")
+            MenuFood(id: "0", name: "FUMO - Beef Steak", imgFood: "fumo", kindFood: [
+                kindFood(id: "1", name: "MÓN CHÍNH", food: [
+                    Foods(id: "1", nameFood: "Thịt nướng", imgFood: "fumo", price: 70000, amount: 0),
+                    Foods(id: "2", nameFood: "Thịt nguội", imgFood: "fumo", price: 70000, amount: 0),
+                    Foods(id: "3", nameFood: "Thịt sông khói", imgFood: "fumo", price: 70000, amount: 0),
+                    Foods(id: "4", nameFood: "Thịt sườn", imgFood: "fumo", price: 70000, amount: 0),
+                    Foods(id: "5", nameFood: "Thịt quay", imgFood: "fumo", price: 70000, amount: 0)
+                    ]),
+                kindFood(id: "2", name: "MÓN PHỤ", food: [
+                    Foods(id: "6",nameFood: "Canh cải", imgFood: "fumo", price: 70000, amount: 0),
+                    Foods(id: "7",nameFood: "Cơm thêm", imgFood: "fumo", price: 70000, amount: 0),
+                    Foods(id: "9",nameFood: "Thịt chim", imgFood: "fumo", price: 70000, amount: 0)
+                ])
+            ]),
+            MenuFood(id: "0", name: "FUMO - Beef Steak", imgFood: "fumo", kindFood: [
+                kindFood(id: "1", name: "MÓN CHÍNH", food: [
+                    Foods(id: "1", nameFood: "Thịt luoc", imgFood: "fumo", price: 70000, amount: 0),
+                    Foods(id: "2", nameFood: "Thịt nguội baki", imgFood: "fumo", price: 70000, amount: 0),
+                    Foods(id: "3", nameFood: "Thịt khói", imgFood: "fumo", price: 70000, amount: 0),
+                    Foods(id: "4", nameFood: "Thịt heo", imgFood: "fumo", price: 70000, amount: 0),
+                    Foods(id: "5", nameFood: "Thịt chó", imgFood: "fumo", price: 70000, amount: 0)
+                    ]),
+                kindFood(id: "2", name: "MÓN PHỤ", food: [
+                    Foods(id: "6",nameFood: "Canh rau muống", imgFood: "fumo", price: 70000, amount: 0),
+                    Foods(id: "7",nameFood: "Cơm tấm", imgFood: "fumo", price: 70000, amount: 0),
+                    Foods(id: "8",nameFood: "Rau chín", imgFood: "fumo", price: 70000, amount: 0),
+                    Foods(id: "9",nameFood: "Thịt gÀ", imgFood: "fumo", price: 70000, amount: 0)
+                ])
             ])
         ]
         tableView.tableHeaderView?.backgroundColor = .white
@@ -46,7 +65,7 @@ class DeliveryViewController: TransparentBarNavViewController {
         
         // Do any additional setup after loading the view.
     }
-    
+
 
 }
 extension DeliveryViewController:FSPagerViewDataSource,FSPagerViewDelegate{
@@ -107,7 +126,7 @@ extension DeliveryViewController:UITableViewDelegate,UITableViewDataSource{
             return
         default:
             let menuFood = sb.instantiateViewController(withIdentifier: "MenuFoodViewController") as! MenuFoodViewController
-            menuFood.titleView = self.arrFoodCategory[indexPath.row].name
+            menuFood.arrMenuFood = self.arrFoodCategory[indexPath.row]
             self.navigationController?.pushViewController(menuFood, animated: true)
             print(indexPath.row)
         }

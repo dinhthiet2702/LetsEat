@@ -16,12 +16,17 @@ class FoodsCell: UITableViewCell {
     @IBOutlet weak var btnAdd: UIButton!
     
     @IBOutlet weak var tfAmount: UITextField!
-    
     var didadd:(()-> Void)! = nil
     var didChangeAmount:((_ amount:Int)-> Void)! = nil
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    func bindData(food: Foods) {
+        img.image = UIImage(named: food.imgFood)
+        name.text = food.nameFood
+        price.text = String(food.price)
+        tfAmount.text = String(food.amount)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

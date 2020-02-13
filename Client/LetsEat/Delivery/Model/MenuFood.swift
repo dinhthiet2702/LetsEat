@@ -7,14 +7,23 @@
 //
 
 import Foundation
+
 struct MenuFood {
+    let id:String
     let name:String
     let imgFood:String
-    let food:[Foods]
+    let kindFood:[kindFood]
+}
+struct kindFood{
+    let id:String
+    let name:String
+    var food:[Foods]
 }
 struct Foods {
+    let id:String
     let nameFood:String
     let imgFood:String
-    let detailFood:String
+    var price:Int
+    var amount:Int
 }
 
