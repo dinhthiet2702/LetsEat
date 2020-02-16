@@ -23,6 +23,8 @@
 		E036BCED23AEBBE00028DB5D /* imgWhereEats.swift in Sources */ = {isa = PBXBuildFile; fileRef = E036BCEC23AEBBE00028DB5D /* imgWhereEats.swift */; };
 		E03DBD4523A3EB6600573AED /* MoreInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03DBD4423A3EB6600573AED /* MoreInfoViewController.swift */; };
 		E03DBD4723A3EC5100573AED /* Main_Storybroad.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03DBD4623A3EC5100573AED /* Main_Storybroad.swift */; };
+		E0628ED623F83E6700B2CD00 /* OrderFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0628ED523F83E6700B2CD00 /* OrderFoodViewController.swift */; };
+		E0628EDA23F88F3600B2CD00 /* FoodCellOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0628ED923F88F3600B2CD00 /* FoodCellOrder.swift */; };
 		E06C7ABA23B7B5460073CA58 /* DeliveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06C7AB923B7B5460073CA58 /* DeliveryViewController.swift */; };
 		E06C7ABD23B7BA520073CA58 /* FoodBlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06C7ABC23B7BA520073CA58 /* FoodBlogViewController.swift */; };
 		E07803A423A95EF60072D1C4 /* BaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07803A323A95EF60072D1C4 /* BaseNavigationViewController.swift */; };
@@ -72,6 +74,8 @@
 		E036BCEC23AEBBE00028DB5D /* imgWhereEats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imgWhereEats.swift; sourceTree = "<group>"; };
 		E03DBD4423A3EB6600573AED /* MoreInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInfoViewController.swift; sourceTree = "<group>"; };
 		E03DBD4623A3EC5100573AED /* Main_Storybroad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main_Storybroad.swift; sourceTree = "<group>"; };
+		E0628ED523F83E6700B2CD00 /* OrderFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderFoodViewController.swift; sourceTree = "<group>"; };
+		E0628ED923F88F3600B2CD00 /* FoodCellOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCellOrder.swift; sourceTree = "<group>"; };
 		E06C7AB923B7B5460073CA58 /* DeliveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryViewController.swift; sourceTree = "<group>"; };
 		E06C7ABC23B7BA520073CA58 /* FoodBlogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodBlogViewController.swift; sourceTree = "<group>"; };
 		E07803A323A95EF60072D1C4 /* BaseNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationViewController.swift; sourceTree = "<group>"; };
@@ -265,6 +269,31 @@
 			path = WhereEats;
 			sourceTree = "<group>";
 		};
+		E0628ED423F83DFF00B2CD00 /* OrderFood */ = {
+			isa = PBXGroup;
+			children = (
+				E0628ED823F88F0F00B2CD00 /* View */,
+				E0628ED723F83F1200B2CD00 /* Controller */,
+			);
+			path = OrderFood;
+			sourceTree = "<group>";
+		};
+		E0628ED723F83F1200B2CD00 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E0628ED523F83E6700B2CD00 /* OrderFoodViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E0628ED823F88F0F00B2CD00 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E0628ED923F88F3600B2CD00 /* FoodCellOrder.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E06C7AB823B7B51C0073CA58 /* Delivery */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,6 +401,7 @@
 		E097FB0523A2C12700D8419F /* LetsEat */ = {
 			isa = PBXGroup;
 			children = (
+				E0628ED423F83DFF00B2CD00 /* OrderFood */,
 				E0874DF523EC5DBB008348F5 /* MenuFood */,
 				E06C7ABB23B7BA3F0073CA58 /* FoodBlog */,
 				E06C7AB823B7B51C0073CA58 /* Delivery */,
@@ -583,6 +613,7 @@
 				E0D1BDA923B13AAB00E4729C /* LocationCell.swift in Sources */,
 				E07803A423A95EF60072D1C4 /* BaseNavigationViewController.swift in Sources */,
 				E0D1BDA123B132C600E4729C /* CategoryViewController.swift in Sources */,
+				E0628EDA23F88F3600B2CD00 /* FoodCellOrder.swift in Sources */,
 				E015E83A23A551CF0078220D /* TransparentBarNavViewController.swift in Sources */,
 				E015E84123A565020078220D /* ButtonUIAction.swift in Sources */,
 				E097FB0B23A2C12700D8419F /* ViewController.swift in Sources */,
@@ -605,6 +636,7 @@
 				E0D1BDA523B132E800E4729C /* ProfileViewController.swift in Sources */,
 				E0C9D94323A7EE33002D3149 /* Favorite_FoodViewController.swift in Sources */,
 				E036BCE923AEB6E60028DB5D /* WhereEatsViewController.swift in Sources */,
+				E0628ED623F83E6700B2CD00 /* OrderFoodViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

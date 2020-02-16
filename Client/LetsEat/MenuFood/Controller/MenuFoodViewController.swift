@@ -23,12 +23,12 @@ class MenuFoodViewController: TransparentBarNavViewController {
         btnBill.radiusCustome(value: 10)
         self.arrkindFood = arrMenuFood.kindFood
         ChangeNumberOfFoodsInCart()
+        
     }
     func ChangeNumberOfFoodsInCart(){
         var total:Int = 0
-        for i in self.arrkindFood {
-            self.arrFood = i.food
-            for j in arrFood {
+        for i in self.arrkindFood{
+            for j in i.food {
                 total += j.amount
             }
         }
@@ -37,10 +37,22 @@ class MenuFoodViewController: TransparentBarNavViewController {
         }
         else{
             self.viewBill.isHidden = false
-            btnBill.setTitle("ĐƠN HÀNG (\(total))", for: .normal)
         }
         
     }
+    @IBAction func btn_Bill(_ sender: UIButton) {
+        let OrderVC = sb.instantiateViewController(withIdentifier: "OrderFoodViewController") as! OrderFoodViewController
+        for i in self.arrkindFood{
+            for j in i.food {
+                if j.amount > 0{
+                    OrderVC.arrFood.append(j)
+                }
+            }
+        }
+        self.navigationController?.pushViewController(OrderVC, animated: true)
+    }
+    
+    
 
 }
 extension MenuFoodViewController:UITableViewDelegate,UITableViewDataSource{
@@ -71,6 +83,29 @@ extension MenuFoodViewController:UITableViewDelegate,UITableViewDataSource{
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "FoodsCell", for: indexPath) as! FoodsCell
             cell.btnAdd.radiusCustome(value: 5)
+            cell.img.layer.cornerRadius = 5
+            cell.bindData(food: self.arrkindFood[indexPath.section].food[indexPath.row])
+            cell.didadd = {
+                cell.viewAmout.isHidden = false
+                cell.btnAdd.isHidden = true
+            }
+            
+            cell.didChangeAmount = { (amount) in
+                self.arrkindFood[indexPath.section].food[indexPath.row].amount = amount
+                self.arrFood.append(self.arrkindFood[indexPath.section].food[indexPath.row])
+                self.ChangeNumberOfFoodsInCart()
+                if (amount <= 0){
+                    cell.viewAmout.isHidden = true
+                    cell.btnAdd.isHidden = false
+                }
+                self.tableView.reloadData()
+                
+            }
+            return cell
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FoodsCell2", for: indexPath) as! FoodsCell2
+            cell.btnAdd.radiusCustome(value: 5)
+            cell.img.layer.cornerRadius = 5
             cell.bindData(food: self.arrkindFood[indexPath.section].food[indexPath.row])
             cell.didadd = {
                 cell.viewAmout.isHidden = false
@@ -85,24 +120,6 @@ extension MenuFoodViewController:UITableViewDelegate,UITableViewDataSource{
                 }
                 self.tableView.reloadData()
                 
-            }
-            return cell
-        default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "FoodsCell2", for: indexPath) as! FoodsCell2
-            cell.btnAdd.radiusCustome(value: 5)
-            cell.bindData(food: self.arrkindFood[indexPath.section].food[indexPath.row])
-            cell.didadd = {
-                cell.viewAmout.isHidden = false
-                cell.btnAdd.isHidden = true
-            }
-            cell.didChangeAmount = { (amount) in
-                self.arrkindFood[indexPath.section].food[indexPath.row].amount = amount
-                self.ChangeNumberOfFoodsInCart()
-                if (amount <= 0){
-                    cell.viewAmout.isHidden = true
-                    cell.btnAdd.isHidden = false
-                }
-                self.tableView.reloadData()
             }
             return cell
         }

@@ -30,10 +30,10 @@ class DeliveryViewController: TransparentBarNavViewController {
             MenuFood(id: "0", name: "FUMO - Beef Steak", imgFood: "fumo", kindFood: [
                 kindFood(id: "1", name: "MÓN CHÍNH", food: [
                     Foods(id: "1", nameFood: "Thịt nướng", imgFood: "fumo", price: 70000, amount: 0),
-                    Foods(id: "2", nameFood: "Thịt nguội", imgFood: "fumo", price: 70000, amount: 0),
-                    Foods(id: "3", nameFood: "Thịt sông khói", imgFood: "fumo", price: 70000, amount: 0),
-                    Foods(id: "4", nameFood: "Thịt sườn", imgFood: "fumo", price: 70000, amount: 0),
-                    Foods(id: "5", nameFood: "Thịt quay", imgFood: "fumo", price: 70000, amount: 0)
+                    Foods(id: "2", nameFood: "Thịt nguội", imgFood: "fumo", price: 10000, amount: 0),
+                    Foods(id: "3", nameFood: "Thịt sông khói", imgFood: "fumo", price: 20000, amount: 0),
+                    Foods(id: "4", nameFood: "Thịt sườn", imgFood: "fumo", price: 40000, amount: 0),
+                    Foods(id: "5", nameFood: "Thịt quay", imgFood: "fumo", price: 30000, amount: 0)
                     ]),
                 kindFood(id: "2", name: "MÓN PHỤ", food: [
                     Foods(id: "6",nameFood: "Canh cải", imgFood: "fumo", price: 70000, amount: 0),

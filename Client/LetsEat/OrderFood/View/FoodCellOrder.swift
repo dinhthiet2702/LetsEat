@@ -1,48 +1,43 @@
 //
-//  FoodsCell.swift
+//  FoodCellOrder.swift
 //  LetsEat
 //
-//  Created by thiet on 2/6/20.
+//  Created by thiet on 2/16/20.
 //  Copyright © 2020 thiet. All rights reserved.
 //
 
 import UIKit
 
-class FoodsCell2: UITableViewCell {
+class FoodCellOrder: UITableViewCell {
+
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var viewAmout: UIView!
-    @IBOutlet weak var btnAdd: UIButton!
-    
     @IBOutlet weak var tfAmount: UITextField!
+    @IBOutlet weak var viewFood: UIView!
+    @IBOutlet weak var viewnonFood: UIView!
+    @IBOutlet weak var btn_NonFood: UIButton!
     
-    var didadd:(()-> Void)! = nil
+    
     var didChangeAmount:((_ amount:Int)-> Void)! = nil
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    var didRemove:(()-> Void)! = nil
+        override func awakeFromNib() {
+            super.awakeFromNib()
+              // Initialization code
+        }
     func bindData(food: Foods) {
         img.image = UIImage(named: food.imgFood)
         name.text = food.nameFood
-        price.text = String("\(food.price) đ")
+        price.text = String(food.price)
         tfAmount.text = String(food.amount)
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+              // Configure the view for the selected state
     }
-    @IBAction func Add(_ sender: UIButton) {
-        let amount = Int(tfAmount.text!)! + 1
-        if didadd != nil{
-            didadd()
-            didChangeAmount(amount)
-        }
-    
-    }
-    
+          
     @IBAction func Minus(_ sender: Any) {
         let amount = Int(tfAmount.text!)! - 1
         if didChangeAmount != nil {
@@ -55,7 +50,10 @@ class FoodsCell2: UITableViewCell {
             didChangeAmount(amount)
         }
     }
-    
+    @IBAction func Remove(_ sender: UIButton) {
+        if didRemove != nil {
+            didRemove()
+        }
+    }
     
 }
-
