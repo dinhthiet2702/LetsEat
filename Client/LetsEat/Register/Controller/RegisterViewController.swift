@@ -1,18 +1,19 @@
 //
-//  ProfileViewController.swift
+//  RegisterViewController.swift
 //  LetsEat
 //
-//  Created by thiet on 12/24/19.
-//  Copyright © 2019 thiet. All rights reserved.
+//  Created by thiet on 2/18/20.
+//  Copyright © 2020 thiet. All rights reserved.
 //
 
 import UIKit
 
-class ProfileViewController: TransparentBarNavViewController {
+class RegisterViewController: TransparentBarNavViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        CustomBackItem()
+        self.navigationItem.title = "ĐĂNG KÍ LETSEAT"
         // Do any additional setup after loading the view.
     }
     

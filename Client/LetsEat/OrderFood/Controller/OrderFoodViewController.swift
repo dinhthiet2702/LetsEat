@@ -24,7 +24,6 @@ class OrderFoodViewController: TransparentBarNavViewController {
         CustomBackItem()
         navigationItem.title = "Đơn hàng của bạn"
         ChangeNumberOfFoodsInCart()
-        print(arrFood)
     }
     func ChangeNumberOfFoodsInCart(){
         var total:Int = 0
@@ -73,6 +72,14 @@ extension OrderFoodViewController:UITableViewDelegate,UITableViewDataSource{
             cell.viewFood.isHidden = true
             cell.viewnonFood.isHidden = false
             cell.btn_NonFood.radiusCustome(value: 10)
+            cell.didNonFood = {
+                for controller in self.navigationController!.viewControllers as Array {
+                    if controller.isKind(of: DeliveryViewController.self) {
+                        self.navigationController!.popToViewController(controller, animated: true)
+                        break
+                    }
+                }
+            }
             
         }
         return cell

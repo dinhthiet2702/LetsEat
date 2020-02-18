@@ -22,10 +22,10 @@ class MenuFoodViewController: TransparentBarNavViewController {
         navigationItem.title = arrMenuFood.name
         btnBill.radiusCustome(value: 10)
         self.arrkindFood = arrMenuFood.kindFood
-        ChangeNumberOfFoodsInCart()
+        ChangeAmountFoods()
         
     }
-    func ChangeNumberOfFoodsInCart(){
+    func ChangeAmountFoods(){
         var total:Int = 0
         for i in self.arrkindFood{
             for j in i.food {
@@ -93,7 +93,7 @@ extension MenuFoodViewController:UITableViewDelegate,UITableViewDataSource{
             cell.didChangeAmount = { (amount) in
                 self.arrkindFood[indexPath.section].food[indexPath.row].amount = amount
                 self.arrFood.append(self.arrkindFood[indexPath.section].food[indexPath.row])
-                self.ChangeNumberOfFoodsInCart()
+                self.ChangeAmountFoods()
                 if (amount <= 0){
                     cell.viewAmout.isHidden = true
                     cell.btnAdd.isHidden = false
@@ -113,7 +113,7 @@ extension MenuFoodViewController:UITableViewDelegate,UITableViewDataSource{
             }
             cell.didChangeAmount = { (amount) in
                 self.arrkindFood[indexPath.section].food[indexPath.row].amount = amount
-                self.ChangeNumberOfFoodsInCart()
+                self.ChangeAmountFoods()
                 if (amount <= 0){
                     cell.viewAmout.isHidden = true
                     cell.btnAdd.isHidden = false

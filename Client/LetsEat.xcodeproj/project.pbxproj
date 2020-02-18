@@ -11,6 +11,7 @@
 		8FDE2E4523A33F2C009806EA /* TextFieldCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE2E4423A33F2C009806EA /* TextFieldCustom.swift */; };
 		8FDE2E4723A37220009806EA /* ButtonUICustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE2E4623A37220009806EA /* ButtonUICustom.swift */; };
 		8FDE2E4A23A3757A009806EA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE2E4923A3757A009806EA /* User.swift */; };
+		E00401EC23FB0D90003832F5 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00401EB23FB0D90003832F5 /* RegisterViewController.swift */; };
 		E015E83A23A551CF0078220D /* TransparentBarNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E015E83923A551CF0078220D /* TransparentBarNavViewController.swift */; };
 		E015E83D23A557260078220D /* Location_LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E015E83C23A557260078220D /* Location_LanguageViewController.swift */; };
 		E015E83F23A557400078220D /* Location_LanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E015E83E23A557400078220D /* Location_LanguageCell.swift */; };
@@ -28,6 +29,7 @@
 		E06C7ABA23B7B5460073CA58 /* DeliveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06C7AB923B7B5460073CA58 /* DeliveryViewController.swift */; };
 		E06C7ABD23B7BA520073CA58 /* FoodBlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06C7ABC23B7BA520073CA58 /* FoodBlogViewController.swift */; };
 		E07803A423A95EF60072D1C4 /* BaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07803A323A95EF60072D1C4 /* BaseNavigationViewController.swift */; };
+		E0795F2C23FAF09F00E0E003 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0795F2B23FAF09E00E0E003 /* Request.swift */; };
 		E080B49323BBCDF9002789BF /* FoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E080B49223BBCDF9002789BF /* FoodCell.swift */; };
 		E080B49723BBD957002789BF /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E080B49623BBD957002789BF /* HeaderCell.swift */; };
 		E0874DF423EC48D7008348F5 /* MenuFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0874DF323EC48D7008348F5 /* MenuFood.swift */; };
@@ -62,6 +64,7 @@
 		8FDE2E4623A37220009806EA /* ButtonUICustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonUICustom.swift; sourceTree = "<group>"; };
 		8FDE2E4923A3757A009806EA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C20E1252C7C91CDB76B9B6CD /* Pods_LetsEat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LetsEat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E00401EB23FB0D90003832F5 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		E015E83923A551CF0078220D /* TransparentBarNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentBarNavViewController.swift; sourceTree = "<group>"; };
 		E015E83C23A557260078220D /* Location_LanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location_LanguageViewController.swift; sourceTree = "<group>"; };
 		E015E83E23A557400078220D /* Location_LanguageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location_LanguageCell.swift; sourceTree = "<group>"; };
@@ -79,6 +82,7 @@
 		E06C7AB923B7B5460073CA58 /* DeliveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryViewController.swift; sourceTree = "<group>"; };
 		E06C7ABC23B7BA520073CA58 /* FoodBlogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodBlogViewController.swift; sourceTree = "<group>"; };
 		E07803A323A95EF60072D1C4 /* BaseNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationViewController.swift; sourceTree = "<group>"; };
+		E0795F2B23FAF09E00E0E003 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		E080B49223BBCDF9002789BF /* FoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCell.swift; sourceTree = "<group>"; };
 		E080B49623BBD957002789BF /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		E0874DF323EC48D7008348F5 /* MenuFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuFood.swift; sourceTree = "<group>"; };
@@ -87,7 +91,7 @@
 		E097FB0323A2C12700D8419F /* LetsEat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsEat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E097FB0623A2C12700D8419F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E097FB0823A2C12700D8419F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E097FB0A23A2C12700D8419F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E097FB0A23A2C12700D8419F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../../ViewController.swift; sourceTree = "<group>"; };
 		E097FB0D23A2C12700D8419F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E097FB0F23A2C12900D8419F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E097FB1223A2C12900D8419F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -140,6 +144,7 @@
 		8FDE2E4323A33F05009806EA /* Supporter */ = {
 			isa = PBXGroup;
 			children = (
+				E0795F2B23FAF09E00E0E003 /* Request.swift */,
 				8FDE2E4423A33F2C009806EA /* TextFieldCustom.swift */,
 				8FDE2E4623A37220009806EA /* ButtonUICustom.swift */,
 				E03DBD4623A3EC5100573AED /* Main_Storybroad.swift */,
@@ -155,6 +160,47 @@
 				8FDE2E4923A3757A009806EA /* User.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E00401E423FB0D12003832F5 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				E00401E723FB0D2E003832F5 /* Model */,
+				E00401E523FB0D1C003832F5 /* Controller */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		E00401E523FB0D1C003832F5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E00401EB23FB0D90003832F5 /* RegisterViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E00401E723FB0D2E003832F5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E00401E823FB0D39003832F5 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				8FDE2E4823A37567009806EA /* Model */,
+				E00401E923FB0D42003832F5 /* Controller */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		E00401E923FB0D42003832F5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E097FB0A23A2C12700D8419F /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		E015E83B23A556F00078220D /* Location_Language */ = {
@@ -401,6 +447,8 @@
 		E097FB0523A2C12700D8419F /* LetsEat */ = {
 			isa = PBXGroup;
 			children = (
+				E00401E823FB0D39003832F5 /* Login */,
+				E00401E423FB0D12003832F5 /* Register */,
 				E0628ED423F83DFF00B2CD00 /* OrderFood */,
 				E0874DF523EC5DBB008348F5 /* MenuFood */,
 				E06C7ABB23B7BA3F0073CA58 /* FoodBlog */,
@@ -415,11 +463,9 @@
 				E07803A523A95EFF0072D1C4 /* MoreInfo */,
 				E0C9D94123A7EDD2002D3149 /*  Favorite_Food */,
 				E015E83B23A556F00078220D /* Location_Language */,
-				8FDE2E4823A37567009806EA /* Model */,
 				8FDE2E4323A33F05009806EA /* Supporter */,
 				E097FB0623A2C12700D8419F /* AppDelegate.swift */,
 				E097FB0823A2C12700D8419F /* SceneDelegate.swift */,
-				E097FB0A23A2C12700D8419F /* ViewController.swift */,
 				E097FB0C23A2C12700D8419F /* Main.storyboard */,
 				E097FB0F23A2C12900D8419F /* Assets.xcassets */,
 				E097FB1123A2C12900D8419F /* LaunchScreen.storyboard */,
@@ -618,12 +664,14 @@
 				E015E84123A565020078220D /* ButtonUIAction.swift in Sources */,
 				E097FB0B23A2C12700D8419F /* ViewController.swift in Sources */,
 				8FDE2E4A23A3757A009806EA /* User.swift in Sources */,
+				E00401EC23FB0D90003832F5 /* RegisterViewController.swift in Sources */,
 				E03DBD4523A3EB6600573AED /* MoreInfoViewController.swift in Sources */,
 				E0C9D94723A7EE65002D3149 /* Favorite_FoodCellList.swift in Sources */,
 				E0EE3C7923B52D6300F34750 /* LocationCellList.swift in Sources */,
 				E06C7ABA23B7B5460073CA58 /* DeliveryViewController.swift in Sources */,
 				E0E1534423B3E16900EC4F73 /* Menu.swift in Sources */,
 				E02D3D5F23B8C08A004FA3C9 /* HeaderView.swift in Sources */,
+				E0795F2C23FAF09F00E0E003 /* Request.swift in Sources */,
 				E0D1BDA323B132D700E4729C /* NotificationsViewController.swift in Sources */,
 				E02448FA23BE601400BEA5AD /* MenuFoodViewController.swift in Sources */,
 				8FDE2E4723A37220009806EA /* ButtonUICustom.swift in Sources */,

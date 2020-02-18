@@ -11,7 +11,12 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    func login(isLog:Bool) {
+        let MainVC =  sb.instantiateViewController(identifier: "BaseTabBarViewController") as! BaseTabBarViewController
+        if isLog {
+            self.window?.rootViewController = MainVC
+        }
+    }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.

@@ -22,6 +22,7 @@ class FoodCellOrder: UITableViewCell {
     
     var didChangeAmount:((_ amount:Int)-> Void)! = nil
     var didRemove:(()-> Void)! = nil
+    var didNonFood:(()-> Void)! = nil
         override func awakeFromNib() {
             super.awakeFromNib()
               // Initialization code
@@ -55,5 +56,11 @@ class FoodCellOrder: UITableViewCell {
             didRemove()
         }
     }
+    @IBAction func SelectFood(_ sender: UIButton) {
+        if didNonFood != nil {
+            didNonFood()
+        }
+    }
+    
     
 }
