@@ -47,6 +47,7 @@
 		E0C9D94323A7EE33002D3149 /* Favorite_FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C9D94223A7EE33002D3149 /* Favorite_FoodViewController.swift */; };
 		E0C9D94723A7EE65002D3149 /* Favorite_FoodCellList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C9D94623A7EE65002D3149 /* Favorite_FoodCellList.swift */; };
 		E0C9D94B23A800BD002D3149 /* imgFoodLocaltion.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C9D94A23A800BD002D3149 /* imgFoodLocaltion.swift */; };
+		E0D1630223FC499200A1B79F /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D1630123FC499200A1B79F /* BaseResponse.swift */; };
 		E0D1BDA123B132C600E4729C /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D1BDA023B132C600E4729C /* CategoryViewController.swift */; };
 		E0D1BDA323B132D700E4729C /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D1BDA223B132D700E4729C /* NotificationsViewController.swift */; };
 		E0D1BDA523B132E800E4729C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D1BDA423B132E800E4729C /* ProfileViewController.swift */; };
@@ -102,6 +103,7 @@
 		E0C9D94223A7EE33002D3149 /* Favorite_FoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite_FoodViewController.swift; sourceTree = "<group>"; };
 		E0C9D94623A7EE65002D3149 /* Favorite_FoodCellList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite_FoodCellList.swift; sourceTree = "<group>"; };
 		E0C9D94A23A800BD002D3149 /* imgFoodLocaltion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imgFoodLocaltion.swift; sourceTree = "<group>"; };
+		E0D1630123FC499200A1B79F /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
 		E0D1BDA023B132C600E4729C /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		E0D1BDA223B132D700E4729C /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		E0D1BDA423B132E800E4729C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 		E00401E723FB0D2E003832F5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E0D1630123FC499200A1B79F /* BaseResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -650,6 +653,7 @@
 				E06C7ABD23B7BA520073CA58 /* FoodBlogViewController.swift in Sources */,
 				E0E1534223B3DC0D00EC4F73 /* MenuCellList.swift in Sources */,
 				E096EE6623F1B60D00971F98 /* FoodsCell2.swift in Sources */,
+				E0D1630223FC499200A1B79F /* BaseResponse.swift in Sources */,
 				E0C9D94B23A800BD002D3149 /* imgFoodLocaltion.swift in Sources */,
 				E015E83D23A557260078220D /* Location_LanguageViewController.swift in Sources */,
 				E0D1BDA723B13A9700E4729C /* MenuCell.swift in Sources */,

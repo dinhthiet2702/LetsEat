@@ -17,14 +17,6 @@ function connectPool(){
 }
 // var data = require('./Module/Person');
 
-var arrPerson = [
-    new Person('1', 'abc', 1999, 'male'),
-    new Person('2', 'abc1', 1999, 'male'),
-    new Person('3', 'abc2', 1999, 'male'),
-    new Person('4', 'abc3', 1999, 'male'),
-    new Person('5', 'abc4', 1999, 'male'),
-    new Person('6', 'abc5', 1999, 'male')
-]
 app.post('/login', function (req,res) {
     const {username, password} = req.body;
     const query = `select * from "User" where "username"='${username}' and "password"=MD5('${password}')`
@@ -35,7 +27,7 @@ app.post('/login', function (req,res) {
            }
            else{
                const token = jwt.sign(result.rows[0],secret,{expiresIn : 30000000000});
-               res.json({result: true, message:'Đăng nhập thành công', data: arrPerson, token:token});
+               res.json({result: true, message:'Đăng nhập thành công', data: [], token:token});
            }
    });
    pool.end();
@@ -59,25 +51,19 @@ app.post('/register', function(req,res){
     function(err, result){
         console.log(isCheck);
             if (result.rowCount == 1) {
-                res.json({result : false, message : 'Tài khoản tồn tại', data : []});
+                res.json({result : false, message : 'Tài khoản tồn tại'});
             } else if(isCheck == 'false'){
                 let query = `insert into "User" ("username", "password")
                 values ('${username}', MD5('${password}'))`
                 connectPool();
                 pool.query(query, function(err, result){
-                    res.json({result : true, message : 'Đăng kí thành công', data : []});
+                    res.json({result : true, message : 'Đăng kí thành công'});
                 });
                 pool.end();
             } else {
-                res.json({result : false, message : 'Tài khoản có thể sử dụng', data : []});
+                res.json({result : true, message : 'Tài khoản có thể sử dụng'});
             }
     });
     pool.end();
 });
 app.listen(3000);
-function Person(id, name, age, gender){
-    this.id = id;
-    this.name = name;
-    this.age = age;
-    this.gender = gender;
-}
