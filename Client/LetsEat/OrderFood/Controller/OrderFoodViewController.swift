@@ -7,14 +7,15 @@
 //
 
 import UIKit
+import Alamofire
 
 class OrderFoodViewController: TransparentBarNavViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var btnAcept: UIButton!
     @IBOutlet weak var lbTotal: UILabel!
     @IBOutlet weak var viewTotal: UIView!
-    
-    var arrFood:[Foods] = []
+    var parameter:[String:String]! = nil
+    var arrFoods:[Foods] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -24,11 +25,22 @@ class OrderFoodViewController: TransparentBarNavViewController {
         CustomBackItem()
         navigationItem.title = "Đơn hàng của bạn"
         ChangeNumberOfFoodsInCart()
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        RequestService.shared.request("http://localhost:3000/order/foods", .get, nil, URLEncodedFormParameterEncoder.default, nil, BaseResponseOrderFood.self) { (result, data, error) in
+            guard let data = data as? BaseResponseOrderFood else {return}
+            if data.result{
+                self.arrFoods =  data.data!
+            }
+            self.ChangeNumberOfFoodsInCart()
+            self.tableView.reloadData()
+        }
     }
     func ChangeNumberOfFoodsInCart(){
         var total:Int = 0
-        for i in self.arrFood{
-            total += i.amount * i.price
+        for i in self.arrFoods{
+            total += Int(i.amount)! * Int(i.price)!
         }
         if total <= 0 {
             self.viewTotal.isHidden = true
@@ -43,29 +55,56 @@ class OrderFoodViewController: TransparentBarNavViewController {
 }
 extension OrderFoodViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrFood.count > 0 ? arrFood.count : 1
+        return self.arrFoods.count > 0 ? self.arrFoods.count : 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FoodCellOrder", for: indexPath) as! FoodCellOrder
         cell.didChangeAmount = { (amount) in
-            self.arrFood[indexPath.row].amount = amount
-            self.ChangeNumberOfFoodsInCart()
-            if (amount <= 0){
-                self.arrFood.remove(at: indexPath.row)
+            self.parameter = [
+                "id":self.arrFoods[indexPath.row].id,
+                "amount":String(amount)
+            ]
+            RequestService.shared.request("http://localhost:3000/order/foods/changeamount", .post, self.parameter, URLEncodedFormParameterEncoder.default, nil, BaseResponseFoodsAmount.self) { (result, data, err) in
+                guard let data = data as? BaseResponseFoodsAmount else {return}
+                if data.result{
+                    self.arrFoods[indexPath.row].amount = String(amount)
+                    self.ChangeNumberOfFoodsInCart()
+                    self.tableView.reloadData()
+                    if (amount <= 0){
+                        self.parameter = [
+                            "id":self.arrFoods[indexPath.row].id,
+                        ]
+                        RequestService.shared.request("http://localhost:3000/order/foods/delete", .post, self.parameter, URLEncodedFormParameterEncoder.default, nil, BaseResponseFoodsAmount.self) { (result, data, err) in
+                            guard let data = data as? BaseResponseFoodsAmount else {return}
+                            if data.result{
+                                self.ChangeNumberOfFoodsInCart()
+                                self.viewDidAppear(true)
+                            }
+                        }
+                        self.tableView.reloadData()
+                    }
+                }
             }
-            self.tableView.reloadData()
-            
         }
         cell.didRemove = {
-            self.arrFood.remove(at: indexPath.row)
-            self.ChangeNumberOfFoodsInCart()
+            self.parameter = [
+                "id":self.arrFoods[indexPath.row].id,
+            ]
+            RequestService.shared.request("http://localhost:3000/order/foods/delete", .post, self.parameter, URLEncodedFormParameterEncoder.default, nil, BaseResponseFoodsAmount.self) { (result, data, err) in
+                guard let data = data as? BaseResponseFoodsAmount else {return}
+                if data.result{
+                    self.ChangeNumberOfFoodsInCart()
+                    self.viewDidAppear(true)
+                }
+            }
             self.tableView.reloadData()
+           
         }
-        if self.arrFood.count > 0 {
+        if self.arrFoods.count > 0 {
             cell.viewFood.isHidden = false
             cell.viewnonFood.isHidden = true
-            cell.bindData(food: arrFood[indexPath.row])
+            cell.bindData(food: arrFoods[indexPath.row])
             cell.img.layer.cornerRadius = 5
         }
         else{

@@ -31,7 +31,7 @@ class RegisterViewController: TransparentBarNavViewController {
         tfPassword.delegate = self
         tfVeryPassword.delegate = self
         self.navigationItem.title = "ĐĂNG KÍ LETSEAT"
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
         
@@ -42,7 +42,15 @@ class RegisterViewController: TransparentBarNavViewController {
         view.endEditing(true)
     }
     func checkUser(isCheck:Bool){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMMM yyyy"
+        let selectedDate = dateFormatter.string(from: tfBirtday.date)
        let parameter  = [
+        "firtname" : tfFirstName.text!,
+        "lastname" : tfLastName.text!,
+        "birtday" : selectedDate,
+        "email" : tfEmail.text!,
+        "phonenumber" : tfPhoneNumber.text!,
         "username" : tfUsername.text!,
         "password" : tfPassword.text!,
         "isCheck" : String(isCheck)
@@ -58,9 +66,13 @@ class RegisterViewController: TransparentBarNavViewController {
                 if self.isValidateUsername(username: self.tfUsername.text!) == false{
                     self.lbCheckUser.text = "Không thể sử dụng"
                 }
+                if self.tfUsername.text?.count == 0{
+                    self.lbCheckUser.text = "Enter your username"
+                }
                 if json.result == false {
                     self.lbCheckUser.text = json.message
                 }
+                
             }
                 
             
@@ -94,10 +106,24 @@ class RegisterViewController: TransparentBarNavViewController {
         let result = emailTest.evaluate(with: email)
         return result
     }
-    
     @IBAction func Register(_ sender: UIButton) {
-        print(isCheckVeryPassword(verypass: tfVeryPassword.text!))
-        
+        let isCheckEmail = isValideEmail(email: tfEmail.text!)
+        let isCheckUser = isValidateUsername(username: tfUsername.text!)
+        let isCheckPassword = isValidatePassword(password: tfPassword.text!)
+        let isCheckVeryPass = isCheckVeryPassword(verypass: tfVeryPassword.text!)
+        if (isCheckEmail == true ) && isCheckUser == true && isCheckPassword == true && isCheckUser == true && isCheckVeryPass == true{
+            let alert:UIAlertController = UIAlertController(title: "Thông báo", message: "Đăng kí thành công", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+                self.checkUser(isCheck: false)
+                self.navigationController?.popViewController(animated: true)
+            }))
+            present(alert, animated: true, completion: nil)
+        }
+        else{
+            let alert:UIAlertController = UIAlertController(title: "Thông báo", message: "Bạn chưa nhập đủ thông tin", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
     }
     
     
@@ -131,9 +157,6 @@ extension RegisterViewController:UITextFieldDelegate{
             }
             else{
                 self.lbCheckPassword.textColor = . red
-                if tfPassword.text?.count == 0{
-                    self.lbCheckPassword.text = "Enter your password"
-                }
                 if isValidatePassword(password: tfPassword.text!) == false {
                     self.lbCheckPassword.text = "Mật khẩu không dùng được"
                 }
@@ -145,7 +168,13 @@ extension RegisterViewController:UITextFieldDelegate{
             }
             else{
                 lbVeryPassword.isHidden = false
-                lbVeryPassword.text = "Password is valid"
+                lbVeryPassword.textColor = .red
+                if isCheckVeryPassword(verypass: tfVeryPassword.text!) == false{
+                        lbVeryPassword.text = "Password is valid"
+                    }
+                if tfVeryPassword.text?.count == 0{
+                    self.lbVeryPassword.text = "Password is null"
+                }
             }
             
         }

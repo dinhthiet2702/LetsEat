@@ -28,9 +28,9 @@ class FoodCellOrder: UITableViewCell {
               // Initialization code
         }
     func bindData(food: Foods) {
-        img.image = UIImage(named: food.imgFood)
-        name.text = food.nameFood
-        price.text = String(food.price)
+        img.image = UIImage(named: food.imgfood)
+        name.text = food.namefood
+        price.text = String("\(food.price!) đ")
         tfAmount.text = String(food.amount)
     }
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -58,12 +58,22 @@ class ViewController: TransparentBarNavViewController {
             ]
         RequestService.shared.request("http://localhost:3000/login", .post, parameter, URLEncodedFormParameterEncoder.default, nil, Token.self) { (result, data, error) in
                 guard let data = data as? Token else {return}
+            
             if data.result == true {
                 UserDefaults.standard.set(data.token, forKey: "token")
-                let moreInfoVC = sb.instantiateViewController(identifier: "MoreInfoViewController") as! MoreInfoViewController
-                self.navigationController?.pushViewController(moreInfoVC, animated: true)
+                if data.data[0].gender == nil || data.data[0].gender == "" {
+                    let moreInfoVC = sb.instantiateViewController(identifier: "MoreInfoViewController") as! MoreInfoViewController
+                    moreInfoVC.id = data.data[0].id
+                    self.navigationController?.pushViewController(moreInfoVC, animated: true)
+                }
+                else{
+                    let scence = self.view.window?.windowScene?.delegate as! SceneDelegate
+                    scence.login(isLog: true)
+                }
+                
             }
             else{
+                print(data.data.count)
                 let alert:UIAlertController = UIAlertController(title: "Thông báo", message: data.message, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                     self.present(alert, animated: true, completion: nil)

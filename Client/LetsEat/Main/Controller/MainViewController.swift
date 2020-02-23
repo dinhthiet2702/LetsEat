@@ -7,27 +7,23 @@
 //
 
 import UIKit
+import Alamofire
 
 class MainViewController: TransparentBarNavViewController {
     @IBOutlet weak var tableView: UITableView!
     private let tableHeaderHeight:CGFloat = 100
     var headerView:HeaderView!
-    
-    
     var arrMenu:[Menu]!
     var arrFood:[imgFood]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        hideButtonBack()
         headerView = tableView.tableHeaderView as? HeaderView
         tableView.tableHeaderView = nil
         tableView.addSubview(headerView)
         tableView.contentInset = UIEdgeInsets(top: tableHeaderHeight, left: 0, bottom: 0, right: 0)
         tableView.contentOffset = CGPoint(x: 0, y: -tableHeaderHeight)
         UpdateHeaderView()
-        
-        
         
         arrMenu = [
             Menu(imgMenu: "foodblog", nameMenu: "Food Blog"),
@@ -80,7 +76,6 @@ extension MainViewController:UITableViewDelegate, UITableViewDataSource{
                     self.navigationController?.pushViewController(FoodBlogVC, animated: true)
                 case 1:
                     let DeliveryVC = sb.instantiateViewController(identifier: "DeliveryViewController") as! DeliveryViewController
-                    
                     self.navigationController?.pushViewController(DeliveryVC, animated: true)
                 default:
                 let FoodBlogVC = sb.instantiateViewController(identifier: "FoodBlogViewController") as! FoodBlogViewController

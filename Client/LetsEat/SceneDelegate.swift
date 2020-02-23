@@ -17,6 +17,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window?.rootViewController = MainVC
         }
     }
+    func logOut() {
+           let Home =  sb.instantiateViewController(identifier: "BaseNavigationViewController") as! BaseNavigationViewController
+            self.window?.rootViewController = Home
+       }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.

@@ -8,10 +8,6 @@
 
 import Foundation
 
-struct Register: Codable {
-    var username:String
-    var password:String
-}
 struct BaseResponse:Codable{
     let result:Bool
     let message:String

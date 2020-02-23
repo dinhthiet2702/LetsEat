@@ -15,6 +15,12 @@ class ProfileViewController: TransparentBarNavViewController {
 
         // Do any additional setup after loading the view.
     }
+    @IBAction func LogOut(_ sender: UIButton) {
+        let scence = self.view.window?.windowScene?.delegate as! SceneDelegate
+        scence.logOut()
+        UserDefaults.standard.removeObject(forKey: "token")
+        scence.logOut()
+    }
     
 
     /*

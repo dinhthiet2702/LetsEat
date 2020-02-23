@@ -8,19 +8,25 @@
 
 import Foundation
 struct User: Codable {
-    let id:String
-    let name:String
-    let age:Int
-    let gender:String
+    var birtday : String!
+    var email : String!
+    var firtname : String!
+    var gender : String!
+    var id : String!
+    var lastname : String!
+    var password : String!
+    var phonenumber : String!
+    var username : String!
+    
 }
 struct Token: Codable {
-    let result:Bool
-    let message:String
-    let data: [User]
-    let token:String
+    var data : [User]!
+    var message : String!
+    var result : Bool!
+    var token : String!
+    
 }
 struct Result:Codable {
     let result:Bool
     let message:String
-    let data: [User]
 }

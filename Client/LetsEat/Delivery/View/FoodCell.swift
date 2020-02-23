@@ -24,7 +24,7 @@ class FoodCell: UITableViewCell {
     }
     func bindData(mf:MenuFood) {
         name.text = mf.name
-        imgFood.image = UIImage(named: mf.imgFood)
+        imgFood.image = UIImage(named: mf.img)
     }
 
 }

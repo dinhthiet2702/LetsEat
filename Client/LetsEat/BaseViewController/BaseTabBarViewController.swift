@@ -13,6 +13,7 @@ class BaseTabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTabBar()
+        
         // Do any additional setup after loading the view.
     }
     func setupTabBar() {
@@ -38,7 +39,7 @@ class BaseTabBarViewController: UITabBarController {
                let navCategoryVC = BaseNavigationViewController(rootViewController: CategoryVC)
         
         // xac dinh viewcontroller
-               let NotificationsVC = sb.instantiateViewController(withIdentifier: "NotificationsViewController") as! NotificationsViewController
+               let NotificationsVC = sb.instantiateViewController(withIdentifier: "OrderFoodViewController") as! OrderFoodViewController
                //setup item tabbar
                NotificationsVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "notifications")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), selectedImage:UIImage(named: "notifications_selected")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal))
                //them vao navigation controllers

@@ -8,6 +8,7 @@
 
 import UIKit
 import FSPagerView
+import Alamofire
 
 class DeliveryViewController: TransparentBarNavViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -26,37 +27,44 @@ class DeliveryViewController: TransparentBarNavViewController {
     var arrFoodCategory:[MenuFood] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        arrFoodCategory = [
-            MenuFood(id: "0", name: "FUMO - Beef Steak", imgFood: "fumo", kindFood: [
-                kindFood(id: "1", name: "MÓN CHÍNH", food: [
-                    Foods(id: "1", nameFood: "Thịt nướng", imgFood: "fumo", price: 70000, amount: 0),
-                    Foods(id: "2", nameFood: "Thịt nguội", imgFood: "fumo", price: 10000, amount: 0),
-                    Foods(id: "3", nameFood: "Thịt sông khói", imgFood: "fumo", price: 20000, amount: 0),
-                    Foods(id: "4", nameFood: "Thịt sườn", imgFood: "fumo", price: 40000, amount: 0),
-                    Foods(id: "5", nameFood: "Thịt quay", imgFood: "fumo", price: 30000, amount: 0)
-                    ]),
-                kindFood(id: "2", name: "MÓN PHỤ", food: [
-                    Foods(id: "6",nameFood: "Canh cải", imgFood: "fumo", price: 70000, amount: 0),
-                    Foods(id: "7",nameFood: "Cơm thêm", imgFood: "fumo", price: 70000, amount: 0),
-                    Foods(id: "9",nameFood: "Thịt chim", imgFood: "fumo", price: 70000, amount: 0)
-                ])
-            ]),
-            MenuFood(id: "0", name: "FUMO - Beef Steak", imgFood: "fumo", kindFood: [
-                kindFood(id: "1", name: "MÓN CHÍNH", food: [
-                    Foods(id: "1", nameFood: "Thịt luoc", imgFood: "fumo", price: 70000, amount: 0),
-                    Foods(id: "2", nameFood: "Thịt nguội baki", imgFood: "fumo", price: 70000, amount: 0),
-                    Foods(id: "3", nameFood: "Thịt khói", imgFood: "fumo", price: 70000, amount: 0),
-                    Foods(id: "4", nameFood: "Thịt heo", imgFood: "fumo", price: 70000, amount: 0),
-                    Foods(id: "5", nameFood: "Thịt chó", imgFood: "fumo", price: 70000, amount: 0)
-                    ]),
-                kindFood(id: "2", name: "MÓN PHỤ", food: [
-                    Foods(id: "6",nameFood: "Canh rau muống", imgFood: "fumo", price: 70000, amount: 0),
-                    Foods(id: "7",nameFood: "Cơm tấm", imgFood: "fumo", price: 70000, amount: 0),
-                    Foods(id: "8",nameFood: "Rau chín", imgFood: "fumo", price: 70000, amount: 0),
-                    Foods(id: "9",nameFood: "Thịt gÀ", imgFood: "fumo", price: 70000, amount: 0)
-                ])
-            ])
-        ]
+        RequestService.shared.request("http://localhost:3000/delivery", .get, nil, URLEncodedFormParameterEncoder.default, nil, BaseResposeMenuFood.self) { (result, data, error) in
+            guard let data = data as? BaseResposeMenuFood else {return}
+            if data.result{
+                self.arrFoodCategory =  data.data!
+            }
+            self.tableView.reloadData()
+        }
+//        arrFoodCategory = [
+//            MenuFood(id: "0", name: "FUMO - Beef Steak", imgFood: "fumo", kindFood: [
+//                kindFood(id: "1", name: "MÓN CHÍNH", food: [
+//                    Foods(id: "1", nameFood: "Thịt nướng", imgFood: "fumo", price: 70000, amount: 0),
+//                    Foods(id: "2", nameFood: "Thịt nguội", imgFood: "fumo", price: 10000, amount: 0),
+//                    Foods(id: "3", nameFood: "Thịt sông khói", imgFood: "fumo", price: 20000, amount: 0),
+//                    Foods(id: "4", nameFood: "Thịt sườn", imgFood: "fumo", price: 40000, amount: 0),
+//                    Foods(id: "5", nameFood: "Thịt quay", imgFood: "fumo", price: 30000, amount: 0)
+//                    ]),
+//                kindFood(id: "2", name: "MÓN PHỤ", food: [
+//                    Foods(id: "6",nameFood: "Canh cải", imgFood: "fumo", price: 70000, amount: 0),
+//                    Foods(id: "7",nameFood: "Cơm thêm", imgFood: "fumo", price: 70000, amount: 0),
+//                    Foods(id: "9",nameFood: "Thịt chim", imgFood: "fumo", price: 70000, amount: 0)
+//                ])
+//            ]),
+//            MenuFood(id: "1", name: "FUMO - Beef Steak", imgFood: "fumo", kindFood: [
+//                kindFood(id: "3", name: "MÓN CHÍNH", food: [
+//                    Foods(id: "1", nameFood: "Thịt luoc", imgFood: "fumo", price: 70000, amount: 0),
+//                    Foods(id: "2", nameFood: "Thịt nguội baki", imgFood: "fumo", price: 70000, amount: 0),
+//                    Foods(id: "3", nameFood: "Thịt khói", imgFood: "fumo", price: 70000, amount: 0),
+//                    Foods(id: "4", nameFood: "Thịt heo", imgFood: "fumo", price: 70000, amount: 0),
+//                    Foods(id: "5", nameFood: "Thịt chó", imgFood: "fumo", price: 70000, amount: 0)
+//                    ]),
+//                kindFood(id: "4", name: "MÓN PHỤ", food: [
+//                    Foods(id: "6",nameFood: "Canh rau muống", imgFood: "fumo", price: 70000, amount: 0),
+//                    Foods(id: "7",nameFood: "Cơm tấm", imgFood: "fumo", price: 70000, amount: 0),
+//                    Foods(id: "8",nameFood: "Rau chín", imgFood: "fumo", price: 70000, amount: 0),
+//                    Foods(id: "9",nameFood: "Thịt gÀ", imgFood: "fumo", price: 70000, amount: 0)
+//                ])
+//            ])
+//        ]
         tableView.tableHeaderView?.backgroundColor = .white
         pagerView.dataSource = self
         pagerView.delegate = self
@@ -94,7 +102,7 @@ extension DeliveryViewController:UITableViewDelegate,UITableViewDataSource{
         case 0:
             return 1
         default:
-            return arrFoodCategory.count
+            return self.arrFoodCategory.count
         }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -126,9 +134,19 @@ extension DeliveryViewController:UITableViewDelegate,UITableViewDataSource{
             return
         default:
             let menuFood = sb.instantiateViewController(withIdentifier: "MenuFoodViewController") as! MenuFoodViewController
-            menuFood.arrMenuFood = self.arrFoodCategory[indexPath.row]
-            self.navigationController?.pushViewController(menuFood, animated: true)
-            print(indexPath.row)
+            let parameter = [
+                "id": arrFoodCategory[indexPath.row].id!
+            ]
+            menuFood.arrMenuFood = arrFoodCategory[indexPath.row]
+            RequestService.shared.request("http://localhost:3000/delivery/menufood", .post, parameter, URLEncodedFormParameterEncoder.default, nil, BaseResposeKindFood.self) { (result, data, err) in
+                guard let data = data as? BaseResposeKindFood else {return}
+                if data.result{
+                    menuFood.arrkindFood = data.data!
+                    self.navigationController?.pushViewController(menuFood, animated: true)
+                }
+            }
+            
+            
         }
     }
 }

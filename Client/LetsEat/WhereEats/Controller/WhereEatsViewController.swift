@@ -26,8 +26,8 @@ class WhereEatsViewController: TransparentBarNavViewController {
         // Do any additional setup after loading the view.
     }
     @IBAction func Next(_ sender: Any) {
-        let MainVC = sb.instantiateViewController(identifier: "MainViewController") as! MainViewController
-        self.navigationController?.pushViewController(MainVC, animated: true)
+        let scence = self.view.window?.windowScene?.delegate as! SceneDelegate
+        scence.login(isLog: true)
     }
     
 
