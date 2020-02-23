@@ -29,7 +29,7 @@ class Favorite_FoodViewController: TransparentBarNavViewController {
                          imgFoodLocation(nameImg: "mon-phap", nameFood: "Món Pháp"),
                          imgFoodLocation(nameImg: "mon-agentina", nameFood: "Món Agentina")
         ]
-        hideButtonBack()
+        hideButtonBack(true)
         btnNext.radiusCustome(value: 5)
     }
     @IBAction func Next(_ sender: UIButton) {

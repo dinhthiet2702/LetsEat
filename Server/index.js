@@ -165,4 +165,12 @@ app.post('/order/foods/delete', function(req,res){
     });
     pool.end();
 });
+app.get('/resetamount', function(req,res){
+    const query = `update "foods" set "amount"='0'`
+    connectPool();
+    pool.query(query, function(err, result){
+        res.json({result:true});
+    });
+    pool.end();
+});
 app.listen(3000);

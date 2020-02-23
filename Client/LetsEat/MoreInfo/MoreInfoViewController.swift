@@ -22,7 +22,7 @@ class MoreInfoViewController: TransparentBarNavViewController {
     var arrLanguage:[String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        hideButtonBack()
+        hideButtonBack(true)
         
         arrLanguage = ["Tiếng Lào", "Tiếng Thái lan", "Vietnamese", "Tiếng Anh"]
         arrLocation = ["Lào", "Thái lan", "Việt Nam", "Anh"]

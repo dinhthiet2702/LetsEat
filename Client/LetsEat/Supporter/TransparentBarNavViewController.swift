@@ -15,9 +15,15 @@ class TransparentBarNavViewController: UIViewController {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
     }
-    func hideButtonBack() {
-        let backButton = UIBarButtonItem(title: "", style: .plain, target: navigationController, action: nil)
-        navigationItem.leftBarButtonItem = backButton
+    func hideButtonBack(_ Bool:Bool) {
+        if Bool == true{
+            let backButton = UIBarButtonItem(title: "", style: .plain, target: navigationController, action: nil)
+            navigationItem.leftBarButtonItem = backButton
+        }
+        else{
+            CustomBackItem()
+        }
+        
     }
     func CustomBackItem() {
            let segmentBarItem = UIBarButtonItem(image: UIImage(named: "back")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), style: .plain, target: self, action: #selector(back))

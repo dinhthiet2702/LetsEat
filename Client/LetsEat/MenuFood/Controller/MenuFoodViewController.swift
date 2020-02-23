@@ -25,6 +25,10 @@ class MenuFoodViewController: TransparentBarNavViewController {
         self.CustomBackItem()
         navigationItem.title = arrMenuFood.name
         btnBill.radiusCustome(value: 10)
+        requestFoods()
+        ChangeAmountFoods()
+    }
+    func requestFoods() {
         RequestService.shared.request("http://localhost:3000/delivery/menufood/foods", .post, ["id":arrkindFood[0].id], URLEncodedFormParameterEncoder.default, nil, BaseResposeFoods.self) { (result, data, err) in
             guard let data = data as? BaseResposeFoods else {return}
             
@@ -37,8 +41,6 @@ class MenuFoodViewController: TransparentBarNavViewController {
                 self.arrFoodSide = data.data!
             self.tableView.reloadData()
         }
-        ChangeAmountFoods()
-        
     }
     func ChangeAmountFoods(){
         var total:Int = 0
@@ -81,7 +83,6 @@ class MenuFoodViewController: TransparentBarNavViewController {
         for i in self.arrFoodSide{
             if Int(i.amount)! > 0
             {
-                OrderVC.arrFoods.append(i)
                  self.parameter = [
                         "namefood": i.namefood,
                         "imgfood": i.imgfood,
@@ -96,7 +97,14 @@ class MenuFoodViewController: TransparentBarNavViewController {
                 }
             }
         }
-        self.navigationController?.pushViewController(OrderVC, animated: true)
+        RequestService.shared.request("http://localhost:3000/resetamount", .get, parameter, URLEncodedFormParameterEncoder.default, nil, BaseResponseOrder.self) { (result, data, err) in
+            guard let data = data as? BaseResponseOrder else {return}
+            if data.result{
+                OrderVC.hideBack = false
+                self.navigationController?.pushViewController(OrderVC, animated: true)
+            }
+        }
+        
     }
 
 }
@@ -146,6 +154,7 @@ extension MenuFoodViewController:UITableViewDelegate,UITableViewDataSource{
                     if data.result{
                         self.arrFoodMain[indexPath.row].amount = String(amount)
                         self.ChangeAmountFoods()
+                        
                         if (amount <= 0){
                             cell.viewAmout.isHidden = true
                             cell.btnAdd.isHidden = false

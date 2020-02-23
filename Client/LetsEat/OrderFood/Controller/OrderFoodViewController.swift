@@ -16,18 +16,20 @@ class OrderFoodViewController: TransparentBarNavViewController {
     @IBOutlet weak var viewTotal: UIView!
     var parameter:[String:String]! = nil
     var arrFoods:[Foods] = []
+    var hideBack:Bool?
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         viewTotal.layer.cornerRadius = 10
         btnAcept.radiusCustome(value: 10)
-        CustomBackItem()
+        
         navigationItem.title = "Đơn hàng của bạn"
         ChangeNumberOfFoodsInCart()
         
     }
     override func viewDidAppear(_ animated: Bool) {
+        hideButtonBack(hideBack ?? true)
         RequestService.shared.request("http://localhost:3000/order/foods", .get, nil, URLEncodedFormParameterEncoder.default, nil, BaseResponseOrderFood.self) { (result, data, error) in
             guard let data = data as? BaseResponseOrderFood else {return}
             if data.result{
@@ -61,28 +63,31 @@ extension OrderFoodViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FoodCellOrder", for: indexPath) as! FoodCellOrder
         cell.didChangeAmount = { (amount) in
-            self.parameter = [
-                "id":self.arrFoods[indexPath.row].id,
-                "amount":String(amount)
-            ]
-            RequestService.shared.request("http://localhost:3000/order/foods/changeamount", .post, self.parameter, URLEncodedFormParameterEncoder.default, nil, BaseResponseFoodsAmount.self) { (result, data, err) in
-                guard let data = data as? BaseResponseFoodsAmount else {return}
-                if data.result{
-                    self.arrFoods[indexPath.row].amount = String(amount)
-                    self.ChangeNumberOfFoodsInCart()
-                    self.tableView.reloadData()
-                    if (amount <= 0){
-                        self.parameter = [
-                            "id":self.arrFoods[indexPath.row].id,
-                        ]
-                        RequestService.shared.request("http://localhost:3000/order/foods/delete", .post, self.parameter, URLEncodedFormParameterEncoder.default, nil, BaseResponseFoodsAmount.self) { (result, data, err) in
-                            guard let data = data as? BaseResponseFoodsAmount else {return}
-                            if data.result{
-                                self.ChangeNumberOfFoodsInCart()
-                                self.viewDidAppear(true)
+            if amount >= 0{
+                self.parameter = [
+                    "id":self.arrFoods[indexPath.row].id,
+                    "amount":String(amount)
+                ]
+                RequestService.shared.request("http://localhost:3000/order/foods/changeamount", .post, self.parameter, URLEncodedFormParameterEncoder.default, nil, BaseResponseFoodsAmount.self) { (result, data, err) in
+                    guard let data = data as? BaseResponseFoodsAmount else {return}
+                    if data.result{
+                        self.arrFoods[indexPath.row].amount = String(amount)
+                        self.ChangeNumberOfFoodsInCart()
+                        self.tableView.reloadData()
+                        if (amount <= 0){
+                            self.parameter = [
+                                "id":self.arrFoods[indexPath.row].id,
+                                    ]
+                            RequestService.shared.request("http://localhost:3000/order/foods/delete", .post, self.parameter, URLEncodedFormParameterEncoder.default, nil, BaseResponseFoodsAmount.self) { (result, data, err) in
+                                guard let data = data as? BaseResponseFoodsAmount else {return}
+                                if data.result{
+                                    self.ChangeNumberOfFoodsInCart()
+                                    self.viewDidAppear(true)
+                                    self.arrFoods.remove(at: indexPath.row)
+                                }
+                                self.tableView.reloadData()
                             }
                         }
-                        self.tableView.reloadData()
                     }
                 }
             }
@@ -96,10 +101,10 @@ extension OrderFoodViewController:UITableViewDelegate,UITableViewDataSource{
                 if data.result{
                     self.ChangeNumberOfFoodsInCart()
                     self.viewDidAppear(true)
+                    self.arrFoods.remove(at: indexPath.row)
                 }
+                self.tableView.reloadData()
             }
-            self.tableView.reloadData()
-           
         }
         if self.arrFoods.count > 0 {
             cell.viewFood.isHidden = false
@@ -117,9 +122,12 @@ extension OrderFoodViewController:UITableViewDelegate,UITableViewDataSource{
                         self.navigationController!.popToViewController(controller, animated: true)
                         break
                     }
+                    else{
+                        let DeliveryVC = sb.instantiateViewController(identifier: "DeliveryViewController") as! DeliveryViewController
+                        self.navigationController?.pushViewController(DeliveryVC, animated: true)
+                    }
                 }
             }
-            
         }
         return cell
     }
