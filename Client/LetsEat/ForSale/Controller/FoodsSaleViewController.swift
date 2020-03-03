@@ -22,7 +22,7 @@ class FoodsSaleViewController: UIViewController {
         super.viewDidLoad()
         let segmentBarItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add))
             navigationItem.rightBarButtonItem = segmentBarItem
-        
+        navigationItem.title = "Thêm món ăn vào menu"
         // Do any additional setup after loading the view.
     }
     @objc func add() {
@@ -40,6 +40,8 @@ extension FoodsSaleViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FoodsSaleCell", for: indexPath) as! FoodsSaleCell
         cell.imgfood.layer.cornerRadius = 10
+        cell.imgfood.layer.borderWidth = 0.3
+        cell.btnAdd.radiusCustome(value: 5)
         cell.didChoose = {
             self.pickerController.maxSelectableCount = 1
             self.pickerController.showsCancelButton = true
@@ -76,7 +78,7 @@ extension FoodsSaleViewController:UITableViewDelegate,UITableViewDataSource{
                 var dataImages : [Dictionary<String, Any>] = []
                 self.arrImages.forEach { (img) in
                 // resize image
-                let convertImage = img.jpegData(compressionQuality: 0)
+                let convertImage = img.jpegData(compressionQuality: 1000)
                            dataImages.append(["key" : "photo",
                                               "value" : convertImage!])
                        }

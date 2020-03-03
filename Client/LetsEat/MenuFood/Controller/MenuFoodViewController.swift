@@ -27,6 +27,14 @@ class MenuFoodViewController: TransparentBarNavViewController {
         kindFoods()
         ChangeAmountFoods()
     }
+    override func viewWillDisappear(_ animated: Bool) {
+        RequestService.shared.request("http://localhost:3000/resetamount", .get, parameter, URLEncodedFormParameterEncoder.default, nil, BaseResponseOrder.self) { (result, data, err) in
+            guard let data = data as? BaseResponseOrder else {return}
+            if data.result{
+                print("OK")
+            }
+        }
+    }
     func kindFoods() {
         for i in arrFoods{
             if i.namekindfood! == "MÓN CHÍNH"{
@@ -66,7 +74,8 @@ class MenuFoodViewController: TransparentBarNavViewController {
                     "namefood": i.namefood,
                     "imgfood": i.imgfood,
                     "price":i.price,
-                    "amount":i.amount
+                    "amount":i.amount,
+                    "user_id":user.id!
                 ]
                 RequestService.shared.request("http://localhost:3000/delivery/menufood/orderfoods", .post, parameter, URLEncodedFormParameterEncoder.default, nil, BaseResponseOrder.self) { (result, data, err) in
                     guard let data = data as? BaseResponseOrder else {return}
@@ -83,7 +92,8 @@ class MenuFoodViewController: TransparentBarNavViewController {
                         "namefood": i.namefood,
                         "imgfood": i.imgfood,
                         "price":i.price,
-                        "amount":i.amount
+                        "amount":i.amount,
+                        "user_id":user.id!
                     ]
                 RequestService.shared.request("http://localhost:3000/delivery/menufood/orderfoods", .post, parameter, URLEncodedFormParameterEncoder.default, nil, BaseResponseOrder.self) { (result, data, err) in
                     guard let data = data as? BaseResponseOrder else {return}

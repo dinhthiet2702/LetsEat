@@ -23,7 +23,7 @@ class FoodsCell: UITableViewCell {
            // Initialization code
        }
        func bindData(food: Foods) {
-        img.image = UIImage(named: food.imgfood!)
+        img.load(nameImage: food.imgfood!)
            name.text = food.namefood!
            price.text = String("\(food.price!) đ")
            tfAmount.text = String(food.amount!)

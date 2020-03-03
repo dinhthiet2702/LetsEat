@@ -23,7 +23,6 @@ class OrderFoodViewController: TransparentBarNavViewController {
         tableView.dataSource = self
         viewTotal.layer.cornerRadius = 10
         btnAcept.radiusCustome(value: 10)
-        
         navigationItem.title = "Đơn hàng của bạn"
         ChangeNumberOfFoodsInCart()
         
@@ -39,6 +38,45 @@ class OrderFoodViewController: TransparentBarNavViewController {
             self.tableView.reloadData()
         }
     }
+    @IBAction func AcceptBill(_ sender: UIButton) {
+        let currentDate = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM-dd-yyyy HH:mm"
+        let dateString = dateFormatter.string(from: currentDate)
+        for i in self.arrFoods{
+            self.parameter = [
+                "namefood": i.namefood,
+                "imgfood": i.imgfood,
+                "price":i.price,
+                "amount":i.amount,
+                "user_id":user.id!,
+                "dateorder":dateString
+            ]
+        }
+
+        RequestService.shared.request("http://localhost:3000/addhistoryorderfoods", .post, self.parameter, URLEncodedFormParameterEncoder.default, nil, BaseResponseOrder.self) { (result, dataadd, err) in
+            guard let dataadd = dataadd as? BaseResponseOrder else {return}
+            if dataadd.result{
+                RequestService.shared.request("http://localhost:3000/deletefoodsorder", .post, ["user_id":user.id!], URLEncodedFormParameterEncoder.default, nil, BaseResponseOrder.self) { (result, datadel, err) in
+                    guard let datadel = datadel as? BaseResponseOrder else {return}
+                    if datadel.result{
+                        let alert = UIAlertController(title: "Thông báo", message: datadel.message, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {(_) in
+                            for controller in self.navigationController!.viewControllers as Array {
+                                if controller.isKind(of: MainViewController.self) {
+                                    self.navigationController!.popToViewController(controller, animated: true)
+                                    break
+                                }
+                            }
+                        }))
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                }
+            }
+        }
+        
+    }
+    
     func ChangeNumberOfFoodsInCart(){
         var total:Int = 0
         for i in self.arrFoods{

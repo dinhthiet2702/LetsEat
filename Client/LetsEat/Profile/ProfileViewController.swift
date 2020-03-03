@@ -15,15 +15,6 @@ class ProfileViewController: TransparentBarNavViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let nsDocumentDirectory = FileManager.SearchPathDirectory.documentDirectory
-        let nsUserDomainMask    = FileManager.SearchPathDomainMask.userDomainMask
-        let paths               = NSSearchPathForDirectoriesInDomains(nsDocumentDirectory, nsUserDomainMask, true)
-        if let dirPath          = paths.first
-        {
-           let imageURL = URL(fileURLWithPath: dirPath).appendingPathComponent("Image2.png")
-           let image    = UIImage(contentsOfFile: imageURL.path)
-           // Do whatever you want with the image
-        }
         // Do any additional setup after loading the view.
     }
     

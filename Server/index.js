@@ -2,8 +2,7 @@ const  express = require('express');
 const app  = express();
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended:true}));
-app.use(express.static('/photofoods'));
-app.use(express.static('/photomenufood'));
+app.use(express.static('photofoods'));
 app.use(bodyParser.json());
 const jwt = require('jsonwebtoken');
 const secret = 'letseat';
@@ -53,7 +52,6 @@ app.post('/check', function(req, res){
         }
         else{
             req.decoded = decoded;
-            console.log(decoded)
             res.json({result:true, message: 'Đăng nhập thành công', data:decoded});
         }
     });
@@ -115,9 +113,28 @@ app.post('/delivery/menufood/foods/changeamount', function(req,res){
     pool.end();
 });
 app.post('/delivery/menufood/orderfoods', function(req,res){
-    const {namefood, imgfood, price, amount} = req.body;
-    const query = `insert into "orderfoods" ("namefood","imgfood","price","amount")
-        values ('${namefood}','${imgfood}','${price}','${amount}')`
+    const {namefood, imgfood, price, amount, user_id} = req.body;
+    const query = `insert into "orderfoods" ("namefood","imgfood","price","amount","user_id")
+        values ('${namefood}','${imgfood}','${price}','${amount}','${user_id}')`
+    connectPool();
+    pool.query(query, function(err, result){
+        res.json({result : true, message : 'Them thanh cong'});
+    });
+    pool.end();
+});
+app.post('/deletefoodsorder', function(req,res){
+    const {user_id} = req.body;
+    const query = `delete from "orderfoods" where "user_id"='${user_id}'`
+    connectPool();
+    pool.query(query, function(err, result){
+        res.json({result : true, message : 'Đặt hàng thành công'});
+    });
+    pool.end();
+});
+app.post('/addhistoryorderfoods', function(req,res){
+    const {namefood, imgfood, price, amount, user_id, dateorder} = req.body;
+    const query = `insert into "historyorderfoods" ("namefood","imgfood","price","amount","user_id","dateorder")
+        values ('${namefood}','${imgfood}','${price}','${amount}','${user_id}','${dateorder}')`
     connectPool();
     pool.query(query, function(err, result){
         res.json({result : true, message : 'Them thanh cong'});
@@ -196,7 +213,7 @@ const storage = multer.diskStorage({
 app.post('/photo', upload.single('photo'), function (req, res, next) {
     const photo = req.file;
     if (!req.file || req.file == null){
-        res.json({result: false, message: 'Không phải là 1 hình ảnh hoặc chưa có hình ảnh', data: []});
+        res.json({result: false, message: 'Không phải là 1 hình ảnh hoặc chưa có hình ảnh', data: photo});
     }
     else{
         res.json({result: true, message: 'Tai len thanh cong', data: photo});

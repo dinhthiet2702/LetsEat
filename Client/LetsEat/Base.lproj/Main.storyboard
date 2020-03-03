@@ -660,26 +660,81 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ich-Fh-HeF">
-                                <rect key="frame" x="122" y="304" width="158" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.98730403180000004" green="0.68802791829999999" blue="0.33314040299999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6mL-er-80R">
+                                <rect key="frame" x="40" y="234" width="334" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.81648069619999997" blue="0.42452472450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="LogOut"/>
-                                <connections>
-                                    <action selector="LogOut:" destination="LY3-HT-3du" eventType="touchUpInside" id="vVm-99-c2D"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6mL-er-80R">
-                                <rect key="frame" x="78" y="240" width="244" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Đăng lên menu của bạn"/>
+                                <state key="normal" title="Tạo menu của bạn"/>
                                 <connections>
                                     <action selector="UploadFoods:" destination="LY3-HT-3du" eventType="touchUpInside" id="ypI-te-cjW"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8xW-BM-fZn">
+                                <rect key="frame" x="60" y="144" width="294" height="40"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="jgc-j4-Uhu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Lich sử mua hàng">
+                                    <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLx-rO-l11">
+                                <rect key="frame" x="60" y="324" width="294" height="40"/>
+                                <color key="backgroundColor" red="0.5272517028" green="1" blue="0.42384193370000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Quản lý món đã đăng"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WYT-cR-T2O">
+                                <rect key="frame" x="70" y="414" width="274" height="40"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Đổi thông tin tài khoản"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f91-Ln-2HQ">
+                                <rect key="frame" x="80" y="504" width="254" height="40"/>
+                                <color key="backgroundColor" systemColor="systemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Đổi mật khẩu"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ich-Fh-HeF">
+                                <rect key="frame" x="90" y="594" width="234" height="40"/>
+                                <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Đăng xuất"/>
+                                <connections>
+                                    <action selector="LogOut:" destination="LY3-HT-3du" eventType="touchUpInside" id="vVm-99-c2D"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="91K-mg-qdh" firstAttribute="trailing" secondItem="f91-Ln-2HQ" secondAttribute="trailing" constant="80" id="12e-a1-ic5"/>
+                            <constraint firstItem="6mL-er-80R" firstAttribute="height" secondItem="8xW-BM-fZn" secondAttribute="height" id="9ue-De-iPk"/>
+                            <constraint firstItem="91K-mg-qdh" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="ich-Fh-HeF" secondAttribute="bottom" constant="228" id="Ai1-Oz-fnn"/>
+                            <constraint firstItem="aLx-rO-l11" firstAttribute="top" secondItem="6mL-er-80R" secondAttribute="bottom" constant="50" id="B2s-Gw-XtL"/>
+                            <constraint firstItem="6mL-er-80R" firstAttribute="leading" secondItem="91K-mg-qdh" secondAttribute="leading" constant="40" id="Bmw-XW-S9S"/>
+                            <constraint firstItem="ich-Fh-HeF" firstAttribute="leading" secondItem="91K-mg-qdh" secondAttribute="leading" constant="90" id="HgY-Tc-jdb"/>
+                            <constraint firstItem="91K-mg-qdh" firstAttribute="trailing" secondItem="8xW-BM-fZn" secondAttribute="trailing" constant="60" id="I6A-6t-TDv"/>
+                            <constraint firstItem="91K-mg-qdh" firstAttribute="trailing" secondItem="WYT-cR-T2O" secondAttribute="trailing" constant="70" id="IaC-Db-RIA"/>
+                            <constraint firstItem="f91-Ln-2HQ" firstAttribute="top" secondItem="WYT-cR-T2O" secondAttribute="bottom" constant="50" id="JiE-PE-ckv"/>
+                            <constraint firstItem="WYT-cR-T2O" firstAttribute="leading" secondItem="91K-mg-qdh" secondAttribute="leading" constant="70" id="MXp-TI-PUE"/>
+                            <constraint firstItem="91K-mg-qdh" firstAttribute="trailing" secondItem="aLx-rO-l11" secondAttribute="trailing" constant="60" id="N8W-jp-R71"/>
+                            <constraint firstItem="ich-Fh-HeF" firstAttribute="height" secondItem="f91-Ln-2HQ" secondAttribute="height" id="TSX-8G-qKo"/>
+                            <constraint firstItem="91K-mg-qdh" firstAttribute="trailing" secondItem="6mL-er-80R" secondAttribute="trailing" constant="40" id="UdI-Aj-dKQ"/>
+                            <constraint firstItem="WYT-cR-T2O" firstAttribute="height" secondItem="aLx-rO-l11" secondAttribute="height" id="WCg-j1-CXU"/>
+                            <constraint firstItem="6mL-er-80R" firstAttribute="top" secondItem="8xW-BM-fZn" secondAttribute="bottom" constant="50" id="XLc-wO-8R4"/>
+                            <constraint firstItem="aLx-rO-l11" firstAttribute="leading" secondItem="91K-mg-qdh" secondAttribute="leading" constant="60" id="Xgs-xn-ovQ"/>
+                            <constraint firstItem="f91-Ln-2HQ" firstAttribute="leading" secondItem="91K-mg-qdh" secondAttribute="leading" constant="80" id="ac1-GT-Xju"/>
+                            <constraint firstItem="ich-Fh-HeF" firstAttribute="top" secondItem="f91-Ln-2HQ" secondAttribute="bottom" constant="50" id="cNc-02-z26"/>
+                            <constraint firstItem="8xW-BM-fZn" firstAttribute="top" secondItem="91K-mg-qdh" secondAttribute="top" constant="100" id="jtw-PA-lXa"/>
+                            <constraint firstItem="aLx-rO-l11" firstAttribute="height" secondItem="6mL-er-80R" secondAttribute="height" id="nKG-Gd-Z7C"/>
+                            <constraint firstItem="WYT-cR-T2O" firstAttribute="top" secondItem="aLx-rO-l11" secondAttribute="bottom" constant="50" id="p2J-Zz-QSk"/>
+                            <constraint firstItem="f91-Ln-2HQ" firstAttribute="height" secondItem="WYT-cR-T2O" secondAttribute="height" id="r3U-zS-fIi"/>
+                            <constraint firstItem="91K-mg-qdh" firstAttribute="trailing" secondItem="ich-Fh-HeF" secondAttribute="trailing" constant="90" id="xMX-Tg-aKF"/>
+                            <constraint firstItem="8xW-BM-fZn" firstAttribute="leading" secondItem="91K-mg-qdh" secondAttribute="leading" constant="60" id="zzZ-9a-mnB"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="91K-mg-qdh"/>
                     </view>
                 </viewController>
@@ -1724,6 +1779,9 @@
                                         <state key="normal" title="XÁC NHẬN THANH TOÁN">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="AcceptBill:" destination="4Nd-JN-xLt" eventType="touchUpInside" id="6Cp-4O-aaz"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.82080635120000001" blue="0.34239426569999998" alpha="0.4822843309859155" colorSpace="custom" customColorSpace="sRGB"/>
