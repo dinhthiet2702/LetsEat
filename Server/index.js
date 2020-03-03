@@ -2,6 +2,9 @@ const  express = require('express');
 const app  = express();
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended:true}));
+app.use(express.static('/photofoods'));
+app.use(express.static('/photomenufood'));
+app.use(bodyParser.json());
 const jwt = require('jsonwebtoken');
 const secret = 'letseat';
 const { Pool } = require('pg');
@@ -50,7 +53,8 @@ app.post('/check', function(req, res){
         }
         else{
             req.decoded = decoded;
-            res.json({result:true, message: 'Đăng nhập thành công', data:[]});
+            console.log(decoded)
+            res.json({result:true, message: 'Đăng nhập thành công', data:decoded});
         }
     });
 });
@@ -90,24 +94,9 @@ app.get('/delivery', function(req,res){
 });
 app.post('/delivery/menufood', function(req,res){
     const {id} = req.body
-    const query = `select * from "kindfood" where "menufood_id"='${id}'`;
+    const query = `select * from "foods" where "menufood_id"='${id}'`;
     connectPool();
     pool.query(query, function(err, result){
-        console.log(result.rowCount)
-            if (result.rowCount == 0) {
-                res.json({result : false, message : 'Chua co mon an', data:[]});
-            } else {
-                res.json({result : true, message : 'OK',data: result.rows});
-            }
-    });
-    pool.end();
-});
-app.post('/delivery/menufood/foods', function(req,res){
-    const {id} = req.body;
-    const query = `select * from "foods" where "kindfood_id"='${id}'`;
-    connectPool();
-    pool.query(query, function(err, result){
-        console.log(result.rowCount)
             if (result.rowCount == 0) {
                 res.json({result : false, message : 'Chua co mon an', data:[]});
             } else {
@@ -170,6 +159,61 @@ app.get('/resetamount', function(req,res){
     connectPool();
     pool.query(query, function(err, result){
         res.json({result:true});
+    });
+    pool.end();
+});
+// multer upload photo
+const multer = require('multer');
+const storage = multer.diskStorage({
+    destination: function(req, file, cb){
+        cb(null, 'photofoods/');
+    },
+    filename: function(req, file, cb){
+        cb(null, file.originalname);
+    }
+});function fileFilter(req, file, cb){
+    if (!file.mimetype.includes("image/png") && !file.mimetype.includes("image/jpeg")) {
+      return cb(null, false);
+    }
+    cb(null, true);
+  };
+  var upload = multer({ storage: storage, fileFilter:fileFilter });
+  app.post('/insertfood', function(req,res,next){
+    const {namefood,imgfood,price,amount,menufood_id,namekindfood} = req.body;
+    const query = `insert into "foods" ("namefood","imgfood","price","amount","menufood_id","namekindfood")
+        values ('${namefood}','${imgfood}','${price}','0','${menufood_id}','${namekindfood}')`
+    connectPool();
+    pool.query(query, function(err, result){
+        let query = `select * from "menufood" where "img"='${imgfood}'`
+        connectPool();
+        pool.query(query, function(err, result){
+            res.json({result : true, message : 'Thêm món ăn thành công', data:result.rows});
+        });
+        pool.end();
+    });
+    pool.end();
+});
+app.post('/photo', upload.single('photo'), function (req, res, next) {
+    const photo = req.file;
+    if (!req.file || req.file == null){
+        res.json({result: false, message: 'Không phải là 1 hình ảnh hoặc chưa có hình ảnh', data: []});
+    }
+    else{
+        res.json({result: true, message: 'Tai len thanh cong', data: photo});
+    }
+});
+app.post('/insertmenufood', function(req,res,next){
+    const {name,img,user_id} = req.body;
+    const query = `insert into "menufood" ("name","img","user_id")
+        values ('${name}','${img}','${user_id}')`
+    connectPool();
+    pool.query(query, function(err, result){
+        let query = `select * from "menufood" where "img"='${img}'`
+        connectPool();
+        pool.query(query, function(err, result){
+            res.json({result : true, message : 'Thêm menu thành công', data:result.rows});
+        });
+        pool.end();
     });
     pool.end();
 });

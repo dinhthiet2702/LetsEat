@@ -7,19 +7,36 @@
 //
 
 import UIKit
+import Alamofire
+
+var user:User!
 
 class ProfileViewController: TransparentBarNavViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let nsDocumentDirectory = FileManager.SearchPathDirectory.documentDirectory
+        let nsUserDomainMask    = FileManager.SearchPathDomainMask.userDomainMask
+        let paths               = NSSearchPathForDirectoriesInDomains(nsDocumentDirectory, nsUserDomainMask, true)
+        if let dirPath          = paths.first
+        {
+           let imageURL = URL(fileURLWithPath: dirPath).appendingPathComponent("Image2.png")
+           let image    = UIImage(contentsOfFile: imageURL.path)
+           // Do whatever you want with the image
+        }
         // Do any additional setup after loading the view.
     }
+    
     @IBAction func LogOut(_ sender: UIButton) {
         let scence = self.view.window?.windowScene?.delegate as! SceneDelegate
         scence.logOut()
         UserDefaults.standard.removeObject(forKey: "token")
         scence.logOut()
+    }
+    @IBAction func UploadFoods(_ sender: Any) {
+        let forSaleVC = sb.instantiateViewController(identifier: "ForSaleViewController") as! ForSaleViewController
+        
+        self.navigationController?.pushViewController(forSaleVC, animated: true)
     }
     
 

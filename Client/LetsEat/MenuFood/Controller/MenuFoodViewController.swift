@@ -15,7 +15,6 @@ class MenuFoodViewController: TransparentBarNavViewController {
     @IBOutlet weak var viewBill: UIView!
     var pushView:(()-> Void)! = nil
     var arrMenuFood:MenuFood!
-    var arrkindFood:[kindFood]!
     var arrFoodMain:[Foods] = []
     var arrFoodSide:[Foods] = []
     var arrFoods:[Foods] = []
@@ -25,22 +24,19 @@ class MenuFoodViewController: TransparentBarNavViewController {
         self.CustomBackItem()
         navigationItem.title = arrMenuFood.name
         btnBill.radiusCustome(value: 10)
-        requestFoods()
+        kindFoods()
         ChangeAmountFoods()
     }
-    func requestFoods() {
-        RequestService.shared.request("http://localhost:3000/delivery/menufood/foods", .post, ["id":arrkindFood[0].id], URLEncodedFormParameterEncoder.default, nil, BaseResposeFoods.self) { (result, data, err) in
-            guard let data = data as? BaseResposeFoods else {return}
-            
-                self.arrFoodMain = data.data!
-            self.tableView.reloadData()
+    func kindFoods() {
+        for i in arrFoods{
+            if i.namekindfood! == "MÓN CHÍNH"{
+                self.arrFoodMain.append(i)
+            }
+            else{
+                self.arrFoodSide.append(i)
+            }
         }
-        RequestService.shared.request("http://localhost:3000/delivery/menufood/foods", .post, ["id":arrkindFood[1].id], URLEncodedFormParameterEncoder.default, nil, BaseResposeFoods.self) { (result, data, err) in
-            guard let data = data as? BaseResposeFoods else {return}
-            
-                self.arrFoodSide = data.data!
-            self.tableView.reloadData()
-        }
+        tableView.reloadData()
     }
     func ChangeAmountFoods(){
         var total:Int = 0
@@ -89,7 +85,7 @@ class MenuFoodViewController: TransparentBarNavViewController {
                         "price":i.price,
                         "amount":i.amount
                     ]
-                RequestService.shared.request("http://localhost:3000/delivery/menufood/orderfood", .post, parameter, URLEncodedFormParameterEncoder.default, nil, BaseResponseOrder.self) { (result, data, err) in
+                RequestService.shared.request("http://localhost:3000/delivery/menufood/orderfoods", .post, parameter, URLEncodedFormParameterEncoder.default, nil, BaseResponseOrder.self) { (result, data, err) in
                     guard let data = data as? BaseResponseOrder else {return}
                     if data.result{
                         print("OK1")
@@ -126,9 +122,19 @@ extension MenuFoodViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
-            return self.arrkindFood[section].name
+            if arrFoodMain.count == 0{
+                return ""
+            }
+            else{
+                return arrFoodMain[0].namekindfood
+            }
         default:
-            return self.arrkindFood[section].name
+            if arrFoodSide.count == 0{
+                return ""
+            }
+            else{
+                return arrFoodSide[0].namekindfood
+            }
         }
     }
     
@@ -143,7 +149,6 @@ extension MenuFoodViewController:UITableViewDelegate,UITableViewDataSource{
                 cell.viewAmout.isHidden = false
                 cell.btnAdd.isHidden = true
             }
-            
             cell.didChangeAmount = { (amount) in
                 self.parameter = [
                     "id":self.arrFoodMain[indexPath.row].id,

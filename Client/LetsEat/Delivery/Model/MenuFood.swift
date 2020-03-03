@@ -18,22 +18,13 @@ struct BaseResposeMenuFood:Codable {
     var message : String!
     var result : Bool!
 }
-struct kindFood:Codable{
-    var id : String!
-    var menufoodId : Int!
-    var name : String!
-}
-struct BaseResposeKindFood:Codable {
-    var data : [kindFood]!
-    var message : String!
-    var result : Bool!
-}
 struct Foods:Codable {
     var amount : String!
     var id : String!
     var imgfood : String!
-    var kindfoodId : Int!
+    var menufoodId : Int!
     var namefood : String!
+    var namekindfood : String!
     var price : String!
 }
 struct BaseResposeFoods:Codable {
