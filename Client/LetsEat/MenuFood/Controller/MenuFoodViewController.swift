@@ -27,14 +27,6 @@ class MenuFoodViewController: TransparentBarNavViewController {
         kindFoods()
         ChangeAmountFoods()
     }
-    override func viewWillDisappear(_ animated: Bool) {
-        RequestService.shared.request("http://localhost:3000/resetamount", .get, parameter, URLEncodedFormParameterEncoder.default, nil, BaseResponseOrder.self) { (result, data, err) in
-            guard let data = data as? BaseResponseOrder else {return}
-            if data.result{
-                print("OK")
-            }
-        }
-    }
     func kindFoods() {
         for i in arrFoods{
             if i.namekindfood! == "MÓN CHÍNH"{
@@ -103,14 +95,8 @@ class MenuFoodViewController: TransparentBarNavViewController {
                 }
             }
         }
-        RequestService.shared.request("http://localhost:3000/resetamount", .get, parameter, URLEncodedFormParameterEncoder.default, nil, BaseResponseOrder.self) { (result, data, err) in
-            guard let data = data as? BaseResponseOrder else {return}
-            if data.result{
-                OrderVC.hideBack = false
-                self.navigationController?.pushViewController(OrderVC, animated: true)
-            }
-        }
-        
+        OrderVC.hideBack = false
+        self.navigationController?.pushViewController(OrderVC, animated: true)
     }
 
 }
@@ -153,58 +139,39 @@ extension MenuFoodViewController:UITableViewDelegate,UITableViewDataSource{
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "FoodsCell", for: indexPath) as! FoodsCell
             cell.btnAdd.radiusCustome(value: 5)
-            cell.img.layer.cornerRadius = 5
+            cell.img.layer.cornerRadius = 10
             cell.bindData(food: self.arrFoodMain[indexPath.row])
             cell.didadd = {
                 cell.viewAmout.isHidden = false
                 cell.btnAdd.isHidden = true
             }
             cell.didChangeAmount = { (amount) in
-                self.parameter = [
-                    "id":self.arrFoodMain[indexPath.row].id,
-                    "amount":String(amount)
-                ]
-                RequestService.shared.request("http://localhost:3000/delivery/menufood/foods/changeamount", .post, self.parameter, URLEncodedFormParameterEncoder.default, nil, BaseResponseFoodsAmount.self) { (result, data, err) in
-                    guard let data = data as? BaseResponseFoodsAmount else {return}
-                    if data.result{
-                        self.arrFoodMain[indexPath.row].amount = String(amount)
-                        self.ChangeAmountFoods()
-                        
-                        if (amount <= 0){
-                            cell.viewAmout.isHidden = true
-                            cell.btnAdd.isHidden = false
-                        }
-                        self.tableView.reloadData()
+                    self.arrFoodMain[indexPath.row].amount = String(amount)
+                    self.ChangeAmountFoods()
+                    if (amount <= 0){
+                        cell.viewAmout.isHidden = true
+                        cell.btnAdd.isHidden = false
                     }
+                    self.tableView.reloadData()
                 }
-            }
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "FoodsCell2", for: indexPath) as! FoodsCell2
             cell.btnAdd.radiusCustome(value: 5)
-            cell.img.layer.cornerRadius = 5
+            cell.img.layer.cornerRadius = 10
             cell.bindData(food: self.arrFoodSide[indexPath.row])
             cell.didadd = {
                 cell.viewAmout.isHidden = false
                 cell.btnAdd.isHidden = true
             }
             cell.didChangeAmount = { (amount) in
-                self.parameter = [
-                    "id":self.arrFoodSide[indexPath.row].id,
-                    "amount":String(amount)
-                ]
-                RequestService.shared.request("http://localhost:3000/delivery/menufood/foods/changeamount", .post, self.parameter, URLEncodedFormParameterEncoder.default, nil, BaseResponseFoodsAmount.self) { (result, data, err) in
-                    guard let data = data as? BaseResponseFoodsAmount else {return}
-                    if data.result{
-                        self.arrFoodSide[indexPath.row].amount = String(amount)
-                        self.ChangeAmountFoods()
-                        if (amount <= 0){
-                            cell.viewAmout.isHidden = true
-                            cell.btnAdd.isHidden = false
-                        }
-                        self.tableView.reloadData()
+                    self.arrFoodSide[indexPath.row].amount = String(amount)
+                    self.ChangeAmountFoods()
+                    if (amount <= 0){
+                        cell.viewAmout.isHidden = true
+                        cell.btnAdd.isHidden = false
                     }
-                }
+                    self.tableView.reloadData()
             }
             return cell
         }

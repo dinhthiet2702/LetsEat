@@ -91,8 +91,8 @@ app.get('/delivery', function(req,res){
     pool.end();
 });
 app.post('/delivery/menufood', function(req,res){
-    const {id} = req.body
-    const query = `select * from "foods" where "menufood_id"='${id}'`;
+    const {menufood_id} = req.body
+    const query = `select * from "foods" where "menufood_id"='${menufood_id}'`;
     connectPool();
     pool.query(query, function(err, result){
             if (result.rowCount == 0) {
@@ -100,15 +100,6 @@ app.post('/delivery/menufood', function(req,res){
             } else {
                 res.json({result : true, message : 'OK',data: result.rows});
             }
-    });
-    pool.end();
-});
-app.post('/delivery/menufood/foods/changeamount', function(req,res){
-    const {id,amount} = req.body;
-    const query = `update "foods" set "amount" = '${amount}' where "id"='${id}'`
-    connectPool();
-    pool.query(query, function(err, result){
-        res.json({result:true});
     });
     pool.end();
 });
@@ -131,22 +122,13 @@ app.post('/deletefoodsorder', function(req,res){
     });
     pool.end();
 });
-app.post('/addhistoryorderfoods', function(req,res){
-    const {namefood, imgfood, price, amount, user_id, dateorder} = req.body;
-    const query = `insert into "historyorderfoods" ("namefood","imgfood","price","amount","user_id","dateorder")
-        values ('${namefood}','${imgfood}','${price}','${amount}','${user_id}','${dateorder}')`
-    connectPool();
-    pool.query(query, function(err, result){
-        res.json({result : true, message : 'Them thanh cong'});
-    });
-    pool.end();
-});
-app.get('/order/foods', function(req,res){
-    const query = `select * from "orderfoods"`;
+app.post('/order/foods', function(req,res){
+    const {user_id} = req.body;
+    const query = `select * from "orderfoods" where "user_id"='${user_id}'`;
     connectPool();
     pool.query(query, function(err, result){
             if (result.rowCount == 0) {
-                res.json({result : false, message : 'Chua co mon an', data:[]});
+                res.json({result : false, message : 'Chua co mon an', data:result.rows});
             } else {
                 res.json({result : true, message : 'OK',data: result.rows});
             }
@@ -165,14 +147,6 @@ app.post('/order/foods/changeamount', function(req,res){
 app.post('/order/foods/delete', function(req,res){
     const {id} = req.body;
     const query = `delete from "orderfoods" where "id"='${id}'`
-    connectPool();
-    pool.query(query, function(err, result){
-        res.json({result:true});
-    });
-    pool.end();
-});
-app.get('/resetamount', function(req,res){
-    const query = `update "foods" set "amount"='0'`
     connectPool();
     pool.query(query, function(err, result){
         res.json({result:true});
@@ -234,4 +208,51 @@ app.post('/insertmenufood', function(req,res,next){
     });
     pool.end();
 });
+app.post('/addhistoryorderfoods', function(req,res){
+    const {namefood, imgfood, price, amount, user_id, dateorder} = req.body;
+    const query = `insert into "historyorderfoods" ("namefood","imgfood","price","amount","user_id","dateorder")
+        values ('${namefood}','${imgfood}','${price}','${amount}','${user_id}','${dateorder}')`
+    connectPool();
+    pool.query(query, function(err, result){
+        res.json({result : true, message : 'Them thanh cong'});
+    });
+    pool.end();
+});
+app.post('/gethistory', function(req,res){
+    const {user_id} = req.body;
+    const query = `select * from "historyorderfoods" where "user_id"='${user_id}'`;
+    connectPool();
+    pool.query(query, function(err, result){
+        res.json({result : true, message : 'Tai thanh cong', data:result.rows});
+    });
+    pool.end();
+});
+app.post('/gethistory/datefoods', function(req,res){
+    const {dateorder} = req.body;
+    const query = `select * from "historyorderfoods" where "dateorder"='${dateorder}'`;
+    connectPool();
+    pool.query(query, function(err, result){
+        res.json({result : true, message : 'Tai thanh cong', data:result.rows});
+    });
+    pool.end();
+});
+app.post('/getmenu/didupload', function(req,res){
+    const {user_id} = req.body;
+    const query = `select * from "menufood" where "user_id"='${user_id}'`;
+    connectPool();
+    pool.query(query, function(err, result){
+        res.json({result : true, message : 'Tai thanh cong', data:result.rows});
+    });
+    pool.end();
+});
+app.post('/getmenu/didupload/remove', function(req,res){
+    const {id} = req.body;
+    const query = `delete from "menufood" where "id"='${id}'`;
+    connectPool();
+    pool.query(query, function(err, result){
+        res.json({result : true, message : 'Xoá thành công'});
+    });
+    pool.end();
+});
+
 app.listen(3000);

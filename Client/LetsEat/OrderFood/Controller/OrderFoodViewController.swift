@@ -29,7 +29,7 @@ class OrderFoodViewController: TransparentBarNavViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         hideButtonBack(hideBack ?? true)
-        RequestService.shared.request("http://localhost:3000/order/foods", .get, nil, URLEncodedFormParameterEncoder.default, nil, BaseResponseOrderFood.self) { (result, data, error) in
+        RequestService.shared.request("http://localhost:3000/order/foods", .post, ["user_id":user.id!], URLEncodedFormParameterEncoder.default, nil, BaseResponseOrderFood.self) { (result, data, error) in
             guard let data = data as? BaseResponseOrderFood else {return}
             if data.result{
                 self.arrFoods =  data.data!
@@ -52,29 +52,28 @@ class OrderFoodViewController: TransparentBarNavViewController {
                 "user_id":user.id!,
                 "dateorder":dateString
             ]
-        }
-
-        RequestService.shared.request("http://localhost:3000/addhistoryorderfoods", .post, self.parameter, URLEncodedFormParameterEncoder.default, nil, BaseResponseOrder.self) { (result, dataadd, err) in
-            guard let dataadd = dataadd as? BaseResponseOrder else {return}
-            if dataadd.result{
-                RequestService.shared.request("http://localhost:3000/deletefoodsorder", .post, ["user_id":user.id!], URLEncodedFormParameterEncoder.default, nil, BaseResponseOrder.self) { (result, datadel, err) in
-                    guard let datadel = datadel as? BaseResponseOrder else {return}
-                    if datadel.result{
-                        let alert = UIAlertController(title: "Thông báo", message: datadel.message, preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {(_) in
-                            for controller in self.navigationController!.viewControllers as Array {
-                                if controller.isKind(of: MainViewController.self) {
-                                    self.navigationController!.popToViewController(controller, animated: true)
-                                    break
-                                }
-                            }
-                        }))
-                        self.present(alert, animated: true, completion: nil)
-                    }
+            RequestService.shared.request("http://localhost:3000/addhistoryorderfoods", .post, self.parameter, URLEncodedFormParameterEncoder.default, nil, BaseResponseOrder.self) { (result, dataadd, err) in
+                guard let dataadd = dataadd as? BaseResponseOrder else {return}
+                if dataadd.result{
+                    print("them thanh cong")
                 }
             }
         }
-        
+        RequestService.shared.request("http://localhost:3000/deletefoodsorder", .post, ["user_id":user.id!], URLEncodedFormParameterEncoder.default, nil, BaseResponseOrder.self) { (result, datadel, err) in
+            guard let datadel = datadel as? BaseResponseOrder else {return}
+            if datadel.result{
+                let alert = UIAlertController(title: "Thông báo", message: datadel.message, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {(_) in
+                    for controller in self.navigationController!.viewControllers as Array {
+                        if controller.isKind(of: MainViewController.self) {
+                            self.navigationController!.popToViewController(controller, animated: true)
+                            break
+                        }
+                    }
+                }))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
     }
     
     func ChangeNumberOfFoodsInCart(){
@@ -172,5 +171,4 @@ extension OrderFoodViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
-    
 }

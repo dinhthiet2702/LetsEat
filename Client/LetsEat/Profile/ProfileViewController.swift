@@ -12,7 +12,13 @@ import Alamofire
 var user:User!
 
 class ProfileViewController: TransparentBarNavViewController {
-
+    @IBOutlet weak var btnHistory: UIButton!
+    @IBOutlet weak var btnUploadFood: UIButton!
+    @IBOutlet weak var btnFoodManager: UIButton!
+    @IBOutlet weak var btnChangeInfomation: UIButton!
+    @IBOutlet weak var btnChangPassword: UIButton!
+    @IBOutlet weak var btnLogOut: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -28,6 +34,18 @@ class ProfileViewController: TransparentBarNavViewController {
         let forSaleVC = sb.instantiateViewController(identifier: "ForSaleViewController") as! ForSaleViewController
         
         self.navigationController?.pushViewController(forSaleVC, animated: true)
+    }
+    @IBAction func History(_ sender: UIButton) {
+        let historyVC = sb.instantiateViewController(identifier: "HistoryFoodViewController") as! HistoryFoodViewController
+        self.navigationController?.pushViewController(historyVC, animated: true)
+    }
+    @IBAction func foodManager(_ sender: Any) {
+        let foodsmanagerVC = sb.instantiateViewController(identifier: "FoodManagerViewController") as! FoodManagerViewController
+        self.navigationController?.pushViewController(foodsmanagerVC, animated: true)
+    }
+    @IBAction func changeInfomation(_ sender: Any) {
+    }
+    @IBAction func btnChangePassword(_ sender: Any) {
     }
     
 

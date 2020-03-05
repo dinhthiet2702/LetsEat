@@ -10,7 +10,7 @@ import UIKit
 import DKImagePickerController
 import Alamofire
 
-class ForSaleViewController: UIViewController {
+class ForSaleViewController: TransparentBarNavViewController {
     @IBOutlet weak var tfMenu: UITextField!
     @IBOutlet weak var imgMenu: UIImageView!
     @IBOutlet weak var btnNext: UIButton!
@@ -24,6 +24,7 @@ class ForSaleViewController: UIViewController {
         imgMenu.layer.borderWidth = 0.3
         btnNext.radiusCustome(value: 10)
         navigationItem.title = "Tạo menu cho bạn"
+        CustomBackItem()
         // Do any additional setup after loading the view.
     }
     @IBAction func Next(_ sender: Any) {

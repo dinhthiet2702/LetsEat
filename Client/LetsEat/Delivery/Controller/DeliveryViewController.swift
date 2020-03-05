@@ -106,7 +106,7 @@ extension DeliveryViewController:UITableViewDelegate,UITableViewDataSource{
         default:
             let menuFood = sb.instantiateViewController(withIdentifier: "MenuFoodViewController") as! MenuFoodViewController
             let parameter = [
-                "id": arrFoodCategory[indexPath.row].id!
+                "menufood_id": arrFoodCategory[indexPath.row].id!
             ]
             menuFood.arrMenuFood = arrFoodCategory[indexPath.row]
             RequestService.shared.request("http://localhost:3000/delivery/menufood", .post, parameter, URLEncodedFormParameterEncoder.default, nil, BaseResposeFoods.self) { (result, data, err) in
@@ -116,8 +116,6 @@ extension DeliveryViewController:UITableViewDelegate,UITableViewDataSource{
                     self.navigationController?.pushViewController(menuFood, animated: true)
                 }
             }
-            
-            
         }
     }
 }

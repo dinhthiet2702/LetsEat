@@ -12,6 +12,7 @@ struct MenuFood:Codable {
     var id : String!
     var img : String!
     var name : String!
+    var user_id:Int!
 }
 struct BaseResposeMenuFood:Codable {
     var data : [MenuFood]!
@@ -22,7 +23,7 @@ struct Foods:Codable {
     var amount : String!
     var id : String!
     var imgfood : String!
-    var menufoodId : Int!
+    var menufood_id : Int!
     var namefood : String!
     var namekindfood : String!
     var price : String!

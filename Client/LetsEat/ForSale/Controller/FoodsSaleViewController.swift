@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import DKImagePickerController
 
-class FoodsSaleViewController: UIViewController {
+class FoodsSaleViewController: TransparentBarNavViewController {
     @IBOutlet weak var tableView: UITableView!
     var arrFood:[String] = []
     var total:Int = 0
@@ -23,6 +23,7 @@ class FoodsSaleViewController: UIViewController {
         let segmentBarItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add))
             navigationItem.rightBarButtonItem = segmentBarItem
         navigationItem.title = "Thêm món ăn vào menu"
+        CustomBackItem()
         // Do any additional setup after loading the view.
     }
     @objc func add() {
