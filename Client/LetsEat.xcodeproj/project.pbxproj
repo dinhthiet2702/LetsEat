@@ -29,6 +29,9 @@
 		E053653B24042D47007C74F2 /* ForSaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E053653A24042D47007C74F2 /* ForSaleViewController.swift */; };
 		E053653D240441C9007C74F2 /* FoodsSaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E053653C240441C9007C74F2 /* FoodsSaleViewController.swift */; };
 		E0536541240443D4007C74F2 /* FoodsSaleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0536540240443D4007C74F2 /* FoodsSaleCell.swift */; };
+		E05FA9B42412B2F3002A69B5 /* DetailFoodsMenuFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05FA9B32412B2F3002A69B5 /* DetailFoodsMenuFoodViewController.swift */; };
+		E05FA9B72412C198002A69B5 /* FoodsMenuFoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05FA9B62412C198002A69B5 /* FoodsMenuFoodCell.swift */; };
+		E05FA9BB2412DA55002A69B5 /* EditFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05FA9BA2412DA55002A69B5 /* EditFoodViewController.swift */; };
 		E0628ED623F83E6700B2CD00 /* OrderFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0628ED523F83E6700B2CD00 /* OrderFoodViewController.swift */; };
 		E0628EDA23F88F3600B2CD00 /* FoodCellOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0628ED923F88F3600B2CD00 /* FoodCellOrder.swift */; };
 		E067B99124100B8500D245C6 /* HistoryFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E067B99024100B8500D245C6 /* HistoryFoodViewController.swift */; };
@@ -98,6 +101,9 @@
 		E053653A24042D47007C74F2 /* ForSaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForSaleViewController.swift; sourceTree = "<group>"; };
 		E053653C240441C9007C74F2 /* FoodsSaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsSaleViewController.swift; sourceTree = "<group>"; };
 		E0536540240443D4007C74F2 /* FoodsSaleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsSaleCell.swift; sourceTree = "<group>"; };
+		E05FA9B32412B2F3002A69B5 /* DetailFoodsMenuFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFoodsMenuFoodViewController.swift; sourceTree = "<group>"; };
+		E05FA9B62412C198002A69B5 /* FoodsMenuFoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsMenuFoodCell.swift; sourceTree = "<group>"; };
+		E05FA9BA2412DA55002A69B5 /* EditFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFoodViewController.swift; sourceTree = "<group>"; };
 		E0628ED523F83E6700B2CD00 /* OrderFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderFoodViewController.swift; sourceTree = "<group>"; };
 		E0628ED923F88F3600B2CD00 /* FoodCellOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCellOrder.swift; sourceTree = "<group>"; };
 		E067B99024100B8500D245C6 /* HistoryFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryFoodViewController.swift; sourceTree = "<group>"; };
@@ -375,6 +381,47 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		E05FA9B12412B2C9002A69B5 /* DetailFoodsMenuFood */ = {
+			isa = PBXGroup;
+			children = (
+				E05FA9B52412C174002A69B5 /* View */,
+				E05FA9B22412B2DB002A69B5 /* Controller */,
+			);
+			path = DetailFoodsMenuFood;
+			sourceTree = "<group>";
+		};
+		E05FA9B22412B2DB002A69B5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E05FA9B32412B2F3002A69B5 /* DetailFoodsMenuFoodViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E05FA9B52412C174002A69B5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E05FA9B62412C198002A69B5 /* FoodsMenuFoodCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E05FA9B82412DA2C002A69B5 /* EditFood */ = {
+			isa = PBXGroup;
+			children = (
+				E05FA9B92412DA35002A69B5 /* Controller */,
+			);
+			path = EditFood;
+			sourceTree = "<group>";
+		};
+		E05FA9B92412DA35002A69B5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E05FA9BA2412DA55002A69B5 /* EditFoodViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		E0628ED423F83DFF00B2CD00 /* OrderFood */ = {
 			isa = PBXGroup;
 			children = (
@@ -634,6 +681,8 @@
 		E097FB0523A2C12700D8419F /* LetsEat */ = {
 			isa = PBXGroup;
 			children = (
+				E05FA9B82412DA2C002A69B5 /* EditFood */,
+				E05FA9B12412B2C9002A69B5 /* DetailFoodsMenuFood */,
 				E0841E94241171D60024E071 /* EditMenuFood */,
 				E067B9A4241021B700D245C6 /* Login */,
 				E067B99C24101FEF00D245C6 /* DetailHistory */,
@@ -854,14 +903,17 @@
 				E0D1BDA723B13A9700E4729C /* MenuCell.swift in Sources */,
 				E0BE797A23B107FA008F2432 /* BaseTabBarViewController.swift in Sources */,
 				E0BE798023B12823008F2432 /* NearLocationViewController.swift in Sources */,
+				E05FA9BB2412DA55002A69B5 /* EditFoodViewController.swift in Sources */,
 				E067B9A12410214900D245C6 /* DetailHistoryViewController.swift in Sources */,
 				E036BCED23AEBBE00028DB5D /* imgWhereEats.swift in Sources */,
 				E0D1BDA923B13AAB00E4729C /* LocationCell.swift in Sources */,
+				E05FA9B42412B2F3002A69B5 /* DetailFoodsMenuFoodViewController.swift in Sources */,
 				E07803A423A95EF60072D1C4 /* BaseNavigationViewController.swift in Sources */,
 				E0841E9324115B7C0024E071 /* MenuFoodManagerCell.swift in Sources */,
 				E0D1BDA123B132C600E4729C /* CategoryViewController.swift in Sources */,
 				E0628EDA23F88F3600B2CD00 /* FoodCellOrder.swift in Sources */,
 				E015E83A23A551CF0078220D /* TransparentBarNavViewController.swift in Sources */,
+				E05FA9B72412C198002A69B5 /* FoodsMenuFoodCell.swift in Sources */,
 				E015E84123A565020078220D /* ButtonUIAction.swift in Sources */,
 				E00401EC23FB0D90003832F5 /* RegisterViewController.swift in Sources */,
 				E04D758124005BCB0093BE60 /* BaseResponseOrder.swift in Sources */,

@@ -7,6 +7,7 @@ app.use(bodyParser.json());
 const jwt = require('jsonwebtoken');
 const secret = 'letseat';
 const { Pool } = require('pg');
+const fs = require('fs');
 var pool = null;
 function connectPool(){
     pool = new Pool({
@@ -253,6 +254,52 @@ app.post('/getmenu/didupload/remove', function(req,res){
         res.json({result : true, message : 'Xoá thành công'});
     });
     pool.end();
+});
+app.post('/getmenu/didupload/remove/removefoods', function(req,res){
+    const {id} = req.body;
+    const query = `delete from "foods" where "menufood_id"='${id}'`;
+    connectPool();
+    pool.query(query, function(err, result){
+        res.json({result : true, message : 'Xoá thành công'});
+    });
+    pool.end();
+});
+app.post('/getmenu/didupload/edit', function(req,res){
+    const {id,name,img} = req.body;
+    const query = `update "menufood" set "name"='${name}',"img"='${img}' where "id"='${id}'`;
+    connectPool();
+    pool.query(query, function(err, result){
+        res.json({result : true, message : 'Lưu thành công'});
+    });
+    pool.end();
+});
+app.post('/getmenu/didupload/foods/delete', function(req,res){
+    const {id} = req.body;
+    const query = `delete from "foods" where "id"='${id}'`
+    connectPool();
+    pool.query(query, function(err, result){
+        res.json({result:true, message:'Xoá thành công'});
+    });
+    pool.end();
+});
+app.post('/removephoto', function(req, res){
+    const {imgname,accpectEditImage}= req.body;
+    const path = `./photofoods/${imgname}`
+    if (accpectEditImage == 'true'){
+        fs.unlink(path, (err) => {
+            if (err) {
+                console.log('loi')
+                res.json({result:true, message:'xoa thanh cong'});
+                return
+            }
+            console.log('xoa')
+            res.json({result:true, message:'xoa thanh cong'});
+        });
+    }
+    else{
+        console.log('ko xoa')
+        res.json({result:false, message:'xoa thanh that bai'});
+    }
 });
 
 app.listen(3000);

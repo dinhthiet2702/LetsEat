@@ -12,7 +12,7 @@ class FoodManagerViewController: TransparentBarNavViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var arrMenuFoodUser:[MenuFood] = []
-    
+    var parameter:[String:String]!
     override func viewDidLoad() {
         super.viewDidLoad()
         CustomBackItem()
@@ -44,17 +44,31 @@ extension FoodManagerViewController:UITableViewDataSource, UITableViewDelegate{
             cell.imgMenufood.layer.cornerRadius = 10
             cell.binData(mf: arrMenuFoodUser[indexPath.row])
             cell.didRemove = {
+                self.parameter = [
+                    "imgname":self.arrMenuFoodUser[indexPath.row].img!,
+                    "accpectEditImage":"true"
+                ]
                 let alert:UIAlertController = UIAlertController(title: "Thông báo", message: "Bạn có muốn xoá menu này?", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Có", style: .default, handler: { (_) in
-                    RequestService.shared.request("http://localhost:3000/getmenu/didupload/remove", .post, ["id":self.arrMenuFoodUser[indexPath.row].id!], URLEncodedFormParameterEncoder.default, nil, BaseResponse.self) { (result, data, err) in
-                        guard let data = data as? BaseResponse else {return}
-                        if data.result{
-                            let alert1:UIAlertController = UIAlertController(title: "Thông báo", message: data.message, preferredStyle: .alert)
-                            alert1.addAction(UIAlertAction(title: "OK", style: .default, handler: {(_) in
-                                self.arrMenuFoodUser.remove(at: indexPath.row)
-                                self.tableView.reloadData()
-                            }))
-                            self.present(alert1, animated: true, completion: nil)
+                    RequestService.shared.request("http://localhost:3000/removephoto", .post, self.parameter, URLEncodedFormParameterEncoder.default, nil, BaseResponse.self) { (result, json, err) in
+                        guard let json = json as? BaseResponse else {return}
+                        if json.result{
+                            RequestService.shared.request("http://localhost:3000/getmenu/didupload/remove/removefoods", .post, ["id":self.arrMenuFoodUser[indexPath.row].id!], URLEncodedFormParameterEncoder.default, nil, BaseResponse.self) { (result, data, err) in
+                                guard let data = data as? BaseResponse else {return}
+                                if data.result{
+                                    RequestService.shared.request("http://localhost:3000/getmenu/didupload/remove", .post, ["id":self.arrMenuFoodUser[indexPath.row].id!], URLEncodedFormParameterEncoder.default, nil, BaseResponse.self) { (result, delete, err) in
+                                            guard let delete = delete as? BaseResponse else {return}
+                                            if delete.result{
+                                                let alert1:UIAlertController = UIAlertController(title: "Thông báo", message: data.message, preferredStyle: .alert)
+                                                alert1.addAction(UIAlertAction(title: "OK", style: .default, handler: {(_) in
+                                                    self.arrMenuFoodUser.remove(at: indexPath.row)
+                                                    self.tableView.reloadData()
+                                                }))
+                                                self.present(alert1, animated: true, completion: nil)
+                                            }
+                                        }
+                                }
+                            }
                         }
                     }
                 }))
@@ -80,6 +94,13 @@ extension FoodManagerViewController:UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 130
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if arrMenuFoodUser.count > 0{
+            let detailFoodsMenuFoodVC = sb.instantiateViewController(identifier: "DetailFoodsMenuFoodViewController") as! DetailFoodsMenuFoodViewController
+            detailFoodsMenuFoodVC.menufood_id = arrMenuFoodUser[indexPath.row].id!
+            self.navigationController?.pushViewController(detailFoodsMenuFoodVC, animated: true)
+        }
     }
 }
