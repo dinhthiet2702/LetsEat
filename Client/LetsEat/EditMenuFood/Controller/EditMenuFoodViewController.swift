@@ -34,6 +34,7 @@ class EditMenuFoodViewController: TransparentBarNavViewController {
         tfNameFood.isUserInteractionEnabled = false
         imgMenuFood.load(nameImage: menuFood.img!)
         tfNameFood.text = menuFood.name!
+        tfNameFood.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
         viewImage.isHidden = true
         navigationItem.title = "Chỉnh sửa menu của bạn"
         CustomBackItem()
@@ -61,11 +62,13 @@ class EditMenuFoodViewController: TransparentBarNavViewController {
         print(accpectEditImage!)
     }
     @IBAction func EditNameFood(_ sender: Any) {
+        tfNameFood.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         btnEditNameFood.isHidden = true
         btnCancelEditNameFood.isHidden = false
         tfNameFood.isUserInteractionEnabled = true
     }
     @IBAction func CancelEditNameFood(_ sender: Any) {
+        tfNameFood.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
         btnEditNameFood.isHidden = false
         btnCancelEditNameFood.isHidden = true
         tfNameFood.text = menuFood.name!

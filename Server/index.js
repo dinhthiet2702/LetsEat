@@ -45,6 +45,15 @@ app.post('/more', function(req,res){
     });
     pool.end();
 });
+app.post('/checkUser', function(req,res){
+    const {id} = req.body;
+    const query = `select * from "User" where "id"='${id}'`
+    connectPool();
+    pool.query(query, function(err, result){
+        res.json({result:true, message:'OK',data:result.rows});
+    });
+    pool.end();
+});
 app.post('/check', function(req, res){
     const token = req.body.token;
     jwt.verify(token,secret, function(err,decoded){
@@ -62,20 +71,19 @@ app.post('/register', function(req,res){
     const {firtname, lastname, birtday, email, phonenumber, username, password, isCheck} = req.body;
     pool.query(`select * from "User" where "username" = '${username}'`,
     function(err, result){
-        console.log(isCheck);
-            if (result.rowCount == 1) {
-                res.json({result : false, message : 'Tài khoản tồn tại'});
-            } else if(isCheck == 'false'){
-                let query = `insert into "User" ("firtname","lastname","birtday","email","phonenumber","username", "password")
-                values ('${firtname}','${lastname}','${birtday}','${email}','${phonenumber}','${username}', MD5('${password}'))`
-                connectPool();
-                pool.query(query, function(err, result){
-                    res.json({result : true, message : 'Đăng kí thành công'});
-                });
-                pool.end();
-            } else {
-                res.json({result : true, message : 'Tài khoản có thể sử dụng'});
-            }
+        if (result.rowCount == 1) {
+            res.json({result : false, message : 'Tài khoản tồn tại'});
+        } else if(isCheck == 'false'){
+            let query = `insert into "User" ("firtname","lastname","birtday","email","phonenumber","username", "password")
+            values ('${firtname}','${lastname}','${birtday}','${email}','${phonenumber}','${username}', MD5('${password}'))`
+            connectPool();
+            pool.query(query, function(err, result){
+                res.json({result : true, message : 'Đăng kí thành công'});
+            });
+            pool.end();
+        } else {
+            res.json({result : true, message : 'Tài khoản có thể sử dụng'});
+        }
     });
     pool.end();
 });
@@ -264,6 +272,7 @@ app.post('/getmenu/didupload/remove/removefoods', function(req,res){
     });
     pool.end();
 });
+
 app.post('/getmenu/didupload/edit', function(req,res){
     const {id,name,img} = req.body;
     const query = `update "menufood" set "name"='${name}',"img"='${img}' where "id"='${id}'`;
@@ -282,22 +291,63 @@ app.post('/getmenu/didupload/foods/delete', function(req,res){
     });
     pool.end();
 });
+app.post('/getmenu/didupload/foods/edit', function(req,res){
+    const {id,namefood,imgfood,price,namekindfood} = req.body;
+    const query = `update "foods" set "namefood"='${namefood}',"imgfood"='${imgfood}',"price"='${price}',"namekindfood"='${namekindfood}' where "id"='${id}'`;
+    connectPool();
+    pool.query(query, function(err, result){
+        res.json({result : true, message : 'Lưu thành công'});
+    });
+    pool.end();
+});
+app.post('/editInfoUser', function(req,res){
+    const {id,firtname,lastname,birtday,email,phonenumber,gender} = req.body;
+    const query = `update "User" set "firtname"='${firtname}',"lastname"='${lastname}',"birtday"='${birtday}',"email"='${email}',"phonenumber"='${phonenumber}',"gender"='${gender}' where "id"='${id}'`;
+    connectPool();
+    pool.query(query, function(err, result){
+        res.json({result : true, message : 'Lưu thành công'});
+    });
+    pool.end();
+});
+app.post('/checkPassword', function(req,res){
+    const {id,password} = req.body;
+    var isCheck = null;
+    const query = `select * from "User" where "id"='${id}' and "password"=MD5('${password}')`;
+    connectPool();
+    pool.query(query, function(err, result){
+        if (result.rowCount != 0){
+            res.json({result : true, message : 'thành công'});
+        }
+        else{
+            res.json({result : false, message : 'Mật khẩu hiện tại không đúng'});
+        }
+        
+    });
+    pool.end();
+});
+app.post('/changepassword', function(req,res){
+    const {id,password} = req.body;
+    const query = `update "User" set "password"=MD5('${password}') where "id"='${id}'`;
+    connectPool();
+    pool.query(query, function(err, result){
+        res.json({result : true, message : 'Đổi mật khẩu thành công'});
+    });
+    pool.end();
+});
+
 app.post('/removephoto', function(req, res){
     const {imgname,accpectEditImage}= req.body;
     const path = `./photofoods/${imgname}`
     if (accpectEditImage == 'true'){
         fs.unlink(path, (err) => {
             if (err) {
-                console.log('loi')
                 res.json({result:true, message:'xoa thanh cong'});
                 return
             }
-            console.log('xoa')
             res.json({result:true, message:'xoa thanh cong'});
         });
     }
     else{
-        console.log('ko xoa')
         res.json({result:false, message:'xoa thanh that bai'});
     }
 });

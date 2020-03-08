@@ -19,7 +19,6 @@
 		E0220FF523AF52050069C4A5 /* WhereEatsCellList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0220FF423AF52050069C4A5 /* WhereEatsCellList.swift */; };
 		E02448FA23BE601400BEA5AD /* MenuFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02448F923BE601400BEA5AD /* MenuFoodViewController.swift */; };
 		E02D3D5F23B8C08A004FA3C9 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02D3D5E23B8C08A004FA3C9 /* HeaderView.swift */; };
-		E02D3D6C23B8DEB2004FA3C9 /* imgFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02D3D6B23B8DEB2004FA3C9 /* imgFood.swift */; };
 		E036BCE923AEB6E60028DB5D /* WhereEatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E036BCE823AEB6E60028DB5D /* WhereEatsViewController.swift */; };
 		E036BCED23AEBBE00028DB5D /* imgWhereEats.swift in Sources */ = {isa = PBXBuildFile; fileRef = E036BCEC23AEBBE00028DB5D /* imgWhereEats.swift */; };
 		E03DBD4523A3EB6600573AED /* MoreInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03DBD4423A3EB6600573AED /* MoreInfoViewController.swift */; };
@@ -58,6 +57,8 @@
 		E097FB0E23A2C12700D8419F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E097FB0C23A2C12700D8419F /* Main.storyboard */; };
 		E097FB1023A2C12900D8419F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E097FB0F23A2C12900D8419F /* Assets.xcassets */; };
 		E097FB1323A2C12900D8419F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E097FB1123A2C12900D8419F /* LaunchScreen.storyboard */; };
+		E09EDB702414106600F34E78 /* ChangeInfoUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09EDB6F2414106600F34E78 /* ChangeInfoUserViewController.swift */; };
+		E09EDB74241410CA00F34E78 /* ChangePasswordUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09EDB73241410CA00F34E78 /* ChangePasswordUserViewController.swift */; };
 		E0BE797A23B107FA008F2432 /* BaseTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE797923B107FA008F2432 /* BaseTabBarViewController.swift */; };
 		E0BE797D23B10B7B008F2432 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE797C23B10B7B008F2432 /* MainViewController.swift */; };
 		E0BE798023B12823008F2432 /* NearLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE797F23B12823008F2432 /* NearLocationViewController.swift */; };
@@ -91,7 +92,6 @@
 		E0220FF423AF52050069C4A5 /* WhereEatsCellList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhereEatsCellList.swift; sourceTree = "<group>"; };
 		E02448F923BE601400BEA5AD /* MenuFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuFoodViewController.swift; sourceTree = "<group>"; };
 		E02D3D5E23B8C08A004FA3C9 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
-		E02D3D6B23B8DEB2004FA3C9 /* imgFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imgFood.swift; sourceTree = "<group>"; };
 		E036BCE823AEB6E60028DB5D /* WhereEatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhereEatsViewController.swift; sourceTree = "<group>"; };
 		E036BCEC23AEBBE00028DB5D /* imgWhereEats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imgWhereEats.swift; sourceTree = "<group>"; };
 		E03DBD4423A3EB6600573AED /* MoreInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInfoViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +132,8 @@
 		E097FB0F23A2C12900D8419F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E097FB1223A2C12900D8419F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E097FB1423A2C12900D8419F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E09EDB6F2414106600F34E78 /* ChangeInfoUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeInfoUserViewController.swift; sourceTree = "<group>"; };
+		E09EDB73241410CA00F34E78 /* ChangePasswordUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordUserViewController.swift; sourceTree = "<group>"; };
 		E0BE797923B107FA008F2432 /* BaseTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarViewController.swift; sourceTree = "<group>"; };
 		E0BE797C23B10B7B008F2432 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E0BE797F23B12823008F2432 /* NearLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearLocationViewController.swift; sourceTree = "<group>"; };
@@ -283,7 +285,6 @@
 			isa = PBXGroup;
 			children = (
 				E0E1534323B3E16900EC4F73 /* Menu.swift */,
-				E02D3D6B23B8DEB2004FA3C9 /* imgFood.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -681,6 +682,8 @@
 		E097FB0523A2C12700D8419F /* LetsEat */ = {
 			isa = PBXGroup;
 			children = (
+				E09EDB71241410A100F34E78 /* ChangePasswordUser */,
+				E09EDB6D2414103100F34E78 /* ChangeInfoUser */,
 				E05FA9B82412DA2C002A69B5 /* EditFood */,
 				E05FA9B12412B2C9002A69B5 /* DetailFoodsMenuFood */,
 				E0841E94241171D60024E071 /* EditMenuFood */,
@@ -713,6 +716,38 @@
 				E097FB1423A2C12900D8419F /* Info.plist */,
 			);
 			path = LetsEat;
+			sourceTree = "<group>";
+		};
+		E09EDB6D2414103100F34E78 /* ChangeInfoUser */ = {
+			isa = PBXGroup;
+			children = (
+				E09EDB6E2414104400F34E78 /* Controller */,
+			);
+			path = ChangeInfoUser;
+			sourceTree = "<group>";
+		};
+		E09EDB6E2414104400F34E78 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E09EDB6F2414106600F34E78 /* ChangeInfoUserViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E09EDB71241410A100F34E78 /* ChangePasswordUser */ = {
+			isa = PBXGroup;
+			children = (
+				E09EDB72241410AE00F34E78 /* Controller */,
+			);
+			path = ChangePasswordUser;
+			sourceTree = "<group>";
+		};
+		E09EDB72241410AE00F34E78 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E09EDB73241410CA00F34E78 /* ChangePasswordUserViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		E0BE797B23B10B57008F2432 /* Main */ = {
@@ -886,10 +921,10 @@
 				E0BE797D23B10B7B008F2432 /* MainViewController.swift in Sources */,
 				E053653B24042D47007C74F2 /* ForSaleViewController.swift in Sources */,
 				E067B9A32410216300D245C6 /* DetailHistoryCell.swift in Sources */,
-				E02D3D6C23B8DEB2004FA3C9 /* imgFood.swift in Sources */,
 				E080B49323BBCDF9002789BF /* FoodCell.swift in Sources */,
 				8FDE2E4523A33F2C009806EA /* TextFieldCustom.swift in Sources */,
 				E0874DF423EC48D7008348F5 /* MenuFood.swift in Sources */,
+				E09EDB74241410CA00F34E78 /* ChangePasswordUserViewController.swift in Sources */,
 				E067B9AA2410224500D245C6 /* User.swift in Sources */,
 				E080B49723BBD957002789BF /* HeaderCell.swift in Sources */,
 				E06C7ABD23B7BA520073CA58 /* FoodBlogViewController.swift in Sources */,
@@ -915,6 +950,7 @@
 				E015E83A23A551CF0078220D /* TransparentBarNavViewController.swift in Sources */,
 				E05FA9B72412C198002A69B5 /* FoodsMenuFoodCell.swift in Sources */,
 				E015E84123A565020078220D /* ButtonUIAction.swift in Sources */,
+				E09EDB702414106600F34E78 /* ChangeInfoUserViewController.swift in Sources */,
 				E00401EC23FB0D90003832F5 /* RegisterViewController.swift in Sources */,
 				E04D758124005BCB0093BE60 /* BaseResponseOrder.swift in Sources */,
 				E03DBD4523A3EB6600573AED /* MoreInfoViewController.swift in Sources */,

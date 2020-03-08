@@ -41,7 +41,7 @@ class OrderFoodViewController: TransparentBarNavViewController {
     @IBAction func AcceptBill(_ sender: UIButton) {
         let currentDate = Date()
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMMM-dd-yyyy HH:mm"
+        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
         let dateString = dateFormatter.string(from: currentDate)
         for i in self.arrFoods{
             self.parameter = [

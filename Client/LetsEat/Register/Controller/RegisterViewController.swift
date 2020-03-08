@@ -31,19 +31,10 @@ class RegisterViewController: TransparentBarNavViewController {
         tfPassword.delegate = self
         tfVeryPassword.delegate = self
         self.navigationItem.title = "ĐĂNG KÍ LETSEAT"
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
-        
-        
-        // Do any additional setup after loading the view.
-    }
-    @objc func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
     }
     func checkUser(isCheck:Bool){
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMMM yyyy"
+        dateFormatter.dateFormat = "dd-MM-yyyy"
         let selectedDate = dateFormatter.string(from: tfBirtday.date)
        let parameter  = [
         "firtname" : tfFirstName.text!,

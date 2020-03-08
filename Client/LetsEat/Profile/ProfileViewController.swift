@@ -8,25 +8,37 @@
 
 import UIKit
 import Alamofire
-
-var user:User!
-
 class ProfileViewController: TransparentBarNavViewController {
     @IBOutlet weak var btnHistory: UIButton!
-    @IBOutlet weak var btnUploadFood: UIButton!
-    @IBOutlet weak var btnFoodManager: UIButton!
     @IBOutlet weak var btnChangeInfomation: UIButton!
     @IBOutlet weak var btnChangPassword: UIButton!
     @IBOutlet weak var btnLogOut: UIButton!
+    @IBOutlet weak var btnCreatMenu: UIButton!
+    @IBOutlet weak var btnFoodManager: UIButton!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        btnChangPassword.radiusCustome(value: 5)
+        btnCreatMenu.radiusCustome(value: 5)
+        btnLogOut.radiusCustome(value: 5)
+        btnHistory.radiusCustome(value: 5)
+        btnFoodManager.radiusCustome(value: 5)
+        btnChangeInfomation.radiusCustome(value: 5)
         // Do any additional setup after loading the view.
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        if user.lastname == ""{
+            navigationItem.title = "Chào bạn"
+        }
+        else{
+            navigationItem.title = "Chào \(user.lastname ?? "bạn")"
+        }
     }
     
     @IBAction func LogOut(_ sender: UIButton) {
         let scence = self.view.window?.windowScene?.delegate as! SceneDelegate
-        scence.logOut()
         UserDefaults.standard.removeObject(forKey: "token")
         scence.logOut()
     }
@@ -44,8 +56,12 @@ class ProfileViewController: TransparentBarNavViewController {
         self.navigationController?.pushViewController(foodsmanagerVC, animated: true)
     }
     @IBAction func changeInfomation(_ sender: Any) {
+        let changeInfomationVC = sb.instantiateViewController(identifier: "ChangeInfoUserViewController") as! ChangeInfoUserViewController
+        self.navigationController?.pushViewController(changeInfomationVC, animated: true)
     }
     @IBAction func btnChangePassword(_ sender: Any) {
+        let changePasswordVC = sb.instantiateViewController(identifier: "ChangePasswordUserViewController") as! ChangePasswordUserViewController
+        self.navigationController?.pushViewController(changePasswordVC, animated: true)
     }
     
 

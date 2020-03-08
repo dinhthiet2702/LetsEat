@@ -87,4 +87,11 @@ extension DetailFoodsMenuFoodViewController:UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 130
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if arrFoods.count > 0{
+            let EditFoodVC = sb.instantiateViewController(identifier: "EditFoodViewController") as! EditFoodViewController
+            EditFoodVC.food = self.arrFoods[indexPath.row]
+            self.navigationController?.pushViewController(EditFoodVC, animated: true)
+        }
+    }
 }

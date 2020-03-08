@@ -31,3 +31,8 @@ struct Result:Codable {
     let message:String
     let data:User!
 }
+struct ResultCheckUser:Codable{
+    let result:Bool
+    let message:String
+    let data:[User]!
+}

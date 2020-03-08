@@ -12,9 +12,12 @@ class TransparentBarNavViewController: UIViewController {
     let searchBar = UISearchBar()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
+        self.hideKeyboardWhenTappedAround()
     }
+    
     func hideButtonBack(_ Bool:Bool) {
         if Bool == true{
             let backButton = UIBarButtonItem(title: "", style: .plain, target: navigationController, action: nil)
@@ -46,8 +49,22 @@ class TransparentBarNavViewController: UIViewController {
 }
 extension TransparentBarNavViewController:UISearchBarDelegate{
     func creatSearchBar(placeholder:String){
+        
         searchBar.placeholder = placeholder
         searchBar.delegate = self
         navigationItem.titleView = searchBar
+    }
+}
+extension TransparentBarNavViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        searchBar.addGestureRecognizer(tap)
+        view.addGestureRecognizer(tap)
+
+    }
+    @objc func dismissKeyboard() {
+        searchBar.endEditing(true)
+        view.endEditing(true)
     }
 }

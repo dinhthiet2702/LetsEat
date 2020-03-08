@@ -50,6 +50,24 @@ extension FoodManagerViewController:UITableViewDataSource, UITableViewDelegate{
                 ]
                 let alert:UIAlertController = UIAlertController(title: "Thông báo", message: "Bạn có muốn xoá menu này?", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Có", style: .default, handler: { (_) in
+                    RequestService.shared.request("http://localhost:3000/delivery/menufood", .post, ["menufood_id":self.arrMenuFoodUser[indexPath.row].id!], URLEncodedFormParameterEncoder.default, nil, BaseResposeFoods.self) { (result, data, err) in
+                        guard let data = data as? BaseResposeFoods else {return}
+                        if data.result{
+                            data.data.forEach { (food) in
+                                self.parameter = [
+                                    "imgname":food.imgfood!,
+                                    "accpectEditImage":"true"
+                                ]
+                                RequestService.shared.request("http://localhost:3000/removephoto", .post, self.parameter, URLEncodedFormParameterEncoder.default, nil, BaseResponse.self) { (result, delete, err) in
+                                    guard let delete = delete as? BaseResponse else {return}
+                                        if delete.result{
+                                            print("OK")
+                                    }
+                                }
+                                
+                            }
+                        }
+                    }
                     RequestService.shared.request("http://localhost:3000/removephoto", .post, self.parameter, URLEncodedFormParameterEncoder.default, nil, BaseResponse.self) { (result, json, err) in
                         guard let json = json as? BaseResponse else {return}
                         if json.result{

@@ -14,7 +14,7 @@ class MainViewController: TransparentBarNavViewController {
     private let tableHeaderHeight:CGFloat = 100
     var headerView:HeaderView!
     var arrMenu:[Menu]!
-    var arrFood:[imgFood]!
+    var arrMenuFood:[MenuFood] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,25 +24,27 @@ class MainViewController: TransparentBarNavViewController {
         tableView.contentInset = UIEdgeInsets(top: tableHeaderHeight, left: 0, bottom: 0, right: 0)
         tableView.contentOffset = CGPoint(x: 0, y: -tableHeaderHeight)
         UpdateHeaderView()
-        
         arrMenu = [
             Menu(imgMenu: "foodblog", nameMenu: "Food Blog"),
             Menu(imgMenu: "delivery", nameMenu: "Delivery"),
-            Menu(imgMenu: "booking", nameMenu: "Reservation"),
+            Menu(imgMenu: "booking", nameMenu: "Booking"),
             Menu(imgMenu: "takeaway", nameMenu: "Take Away"),
             Menu(imgMenu: "foodtour", nameMenu: "Food Tour"),
-            Menu(imgMenu: "plan", nameMenu: "Eating Plan"),
+            Menu(imgMenu: "plan", nameMenu: "Plan"),
             Menu(imgMenu: "rewards", nameMenu: "Rewards")
-        ]
-        
-        arrFood = [
-            imgFood(nameImg: "beef_steak", nameFood: "Beef Steak"),
-            imgFood(nameImg: "my_y", nameFood: "Mỳ Ý"),
-            imgFood(nameImg: "ga_phomai", nameFood: "Gà Phô Mai")
         ]
         
         creatSearchBar(placeholder: "Tìm kiếm nhanh")
         
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        RequestService.shared.request("http://localhost:3000/delivery", .get, nil, URLEncodedFormParameterEncoder.default, nil, BaseResposeMenuFood.self) { (result, data, error) in
+            guard let data = data as? BaseResposeMenuFood else {return}
+            if data.result{
+                self.arrMenuFood =  data.data!
+            }
+            self.tableView.reloadData()
+        }
     }
     func UpdateHeaderView(){
         var headerReact = CGRect(x: 0, y: -tableHeaderHeight, width: tableView.bounds.width, height: tableHeaderHeight)
@@ -88,8 +90,22 @@ extension MainViewController:UITableViewDelegate, UITableViewDataSource{
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell", for: indexPath) as! LocationCell
-            cell.arrFood = self.arrFood
-            
+            cell.arrMenuFood = self.arrMenuFood
+            cell.collectionview.reloadData()
+            cell.didSelectMenuFood = { (mf) in
+                let menuFood = sb.instantiateViewController(withIdentifier: "MenuFoodViewController") as! MenuFoodViewController
+                let parameter = [
+                    "menufood_id": mf.id!
+                ]
+                menuFood.arrMenuFood = mf
+                RequestService.shared.request("http://localhost:3000/delivery/menufood", .post, parameter, URLEncodedFormParameterEncoder.default, nil, BaseResposeFoods.self) { (result, data, err) in
+                    guard let data = data as? BaseResposeFoods else {return}
+                    if data.result{
+                        menuFood.arrFoods = data.data!
+                        self.navigationController?.pushViewController(menuFood, animated: true)
+                    }
+                }
+            }
             return cell
         }
         

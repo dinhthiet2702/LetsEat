@@ -7,10 +7,11 @@
 //
 
 import UIKit
-
+import Alamofire
 class LocationCell: UITableViewCell {
     @IBOutlet weak var collectionview: UICollectionView!
-    var arrFood:[imgFood]!
+    var arrMenuFood:[MenuFood]!
+    var didSelectMenuFood:((_ mf:MenuFood)->Void)! = nil
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,15 +26,19 @@ class LocationCell: UITableViewCell {
 }
 extension LocationCell:UICollectionViewDataSource, UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        arrFood.count
+        self.arrMenuFood.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionview.dequeueReusableCell(withReuseIdentifier: "LocationCellList", for: indexPath) as! LocationCellList
-        cell.bindData(food: arrFood[indexPath.item])
+        cell.bindData(mf: arrMenuFood[indexPath.item])
         cell.contentView.layer.cornerRadius = 10
         return cell
     }
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if didSelectMenuFood != nil{
+            didSelectMenuFood(arrMenuFood[indexPath.item])
+        }
+    }
     
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 import Alamofire
-
+var user:User!
 class LoginViewController: TransparentBarNavViewController {
     let nameImg : [String] = ["Ico-fettle-proper"]
     @IBOutlet weak var usernameLb: UITextField!
@@ -24,9 +24,21 @@ class LoginViewController: TransparentBarNavViewController {
             RequestService.shared.request("http://localhost:3000/check", .post, parameter, URLEncodedFormParameterEncoder.default, nil, Result.self) { (result, json, error) in
                 guard let json = json as? Result else {return}
                 if json.result{
-                    user = json.data
-                    let scence = self.view.window?.windowScene?.delegate as! SceneDelegate
-                    scence.login(isLog: true)
+                    RequestService.shared.request("http://localhost:3000/checkUser", .post, ["id":json.data.id!], URLEncodedFormParameterEncoder.default, nil, ResultCheckUser.self) { (result, check, error) in
+                        guard let check = check as? ResultCheckUser else {return}
+                        if check.result{
+                            if check.data[0].password! == json.data.password!{
+                                user = check.data[0]
+                                let scence = self.view.window?.windowScene?.delegate as! SceneDelegate
+                                scence.login(isLog: true)
+                            }
+                            else{
+                                let alert:UIAlertController = UIAlertController(title: "Thông báo", message: "Phiên đăng nhập hết hạn!", preferredStyle: .alert)
+                                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                                self.present(alert, animated: true, completion: nil)
+                            }
+                        }
+                    }
                 }
                  else{
                      let alert:UIAlertController = UIAlertController(title: "Thông báo", message: json.message, preferredStyle: .alert)
